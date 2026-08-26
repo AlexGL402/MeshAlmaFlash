@@ -1,4 +1,4 @@
-:root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#070b14;color:#eef3ff}
+﻿:root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#070b14;color:#eef3ff}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 0%,#17233d 0,transparent 34rem),#070b14}
 button,input{font:inherit}
@@ -30,3 +30,15 @@ button,input{font:inherit}
 footer{text-align:center;color:#65738b;font-size:.8rem;padding:20px}
 @media(max-width:800px){.board-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.diy-content{grid-template-columns:1fr}}
 @media(max-width:600px){.shell{padding-top:20px}.board-grid,.cards{grid-template-columns:1fr}.selected{align-items:stretch;flex-direction:column}.primary{width:100%}.hero h1{font-size:3rem}.topbar{align-items:flex-start}}
+
+.release-grid,.community-grid,.credits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.release-card,.community-card,.credit-card{background:#0b1424;border:1px solid #293852;border-radius:16px;padding:17px}
+.release-head{display:flex;justify-content:space-between;gap:12px}.release-head small{display:block;color:#8191a9;margin-top:4px}
+.release-status{font-size:.68rem;font-weight:850;letter-spacing:.08em;border-radius:999px;padding:5px 8px;height:max-content}
+.release-status.testing{color:#e3c276;border:1px solid #725d2b;background:#211b0d}
+.release-meta{display:flex;gap:18px;margin:15px 0}.release-meta div{display:flex;flex-direction:column}.release-meta dt{font-size:.7rem;color:#71819c;text-transform:uppercase}.release-meta dd{margin:3px 0 0;color:#c9d7ec}
+.release-card h4{font-size:.75rem;color:#8da5c9;margin:13px 0 6px}.release-card ul{margin:0;padding-left:18px;color:#a8b6cc;line-height:1.55}.muted{color:#8e9cb4;line-height:1.55}
+.wishlist-box{display:flex;flex-direction:column;gap:5px;margin-top:14px;padding:15px;border:1px dashed #3b4c6a;border-radius:14px;color:#91a1ba}.wishlist-box strong{color:#cfe0ff}
+.community-card{display:flex;gap:14px;align-items:flex-start}.community-icon{display:grid;place-items:center;min-width:42px;height:42px;border-radius:13px;background:#172742;color:#8fb6ff;font-size:1.2rem}.community-card h3,.credit-card h3{margin:0 0 8px}.community-card p,.credit-card p{color:#9baac1;line-height:1.55}.compact{width:max-content;padding:9px 12px;margin-top:5px}
+.credit-links{display:flex;gap:10px;flex-wrap:wrap}.credit-links a{color:#8fb6ff;text-decoration:none;border-bottom:1px dotted #5472a5}
+@media(max-width:760px){.release-grid,.community-grid,.credits-grid{grid-template-columns:1fr}}

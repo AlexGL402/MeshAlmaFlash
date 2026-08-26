@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1020">
-  <meta name="description" content="MeshAlma Flash — firmware, DIY guides and USB serial tools for mesh nodes.">
+  <meta name="description" content="MeshAlma Flash вЂ” firmware, DIY guides and USB serial tools for mesh nodes.">
   <title>MeshAlma Flash</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,17 +20,17 @@
         </div>
       </div>
       <h1 data-i18n="heroTitle">Firmware Flasher</h1>
-      <p data-i18n="heroText">Выберите плату и проверенную прошивку, затем настройте узел через USB Serial.</p>
+      <p data-i18n="heroText">Р’С‹Р±РµСЂРёС‚Рµ РїР»Р°С‚Сѓ Рё РїСЂРѕРІРµСЂРµРЅРЅСѓСЋ РїСЂРѕС€РёРІРєСѓ, Р·Р°С‚РµРј РЅР°СЃС‚СЂРѕР№С‚Рµ СѓР·РµР» С‡РµСЂРµР· USB Serial.</p>
       <div class="hero-tags">
         <span>ZephCore-based</span><span>MeshCore-compatible</span><span data-i18n="independent">Independent community project</span>
       </div>
     </header>
 
     <section class="panel">
-      <div class="step"><span>1</span><div><strong data-i18n="chooseBoard">Выберите плату</strong><small data-i18n="chooseBoardSub">Поддерживаемое и планируемое железо</small></div></div>
+      <div class="step"><span>1</span><div><strong data-i18n="chooseBoard">Р’С‹Р±РµСЂРёС‚Рµ РїР»Р°С‚Сѓ</strong><small data-i18n="chooseBoardSub">РџРѕРґРґРµСЂР¶РёРІР°РµРјРѕРµ Рё РїР»Р°РЅРёСЂСѓРµРјРѕРµ Р¶РµР»РµР·Рѕ</small></div></div>
       <div class="board-toolbar">
         <div class="filter-chips" id="board-filters">
-          <button class="filter active" data-filter="all" data-i18n="filterAll">Все</button>
+          <button class="filter active" data-filter="all" data-i18n="filterAll">Р’СЃРµ</button>
           <button class="filter" data-filter="esp32">ESP32</button>
           <button class="filter" data-filter="nrf52840">nRF52840</button>
           <button class="filter" data-filter="diy">DIY</button>
@@ -40,7 +40,7 @@
     </section>
 
     <section class="panel">
-      <div class="step"><span>2</span><div><strong data-i18n="chooseFirmware">Выберите прошивку</strong><small id="firmware-step-sub" data-i18n="chooseBoardFirst">Сначала выберите плату</small></div></div>
+      <div class="step"><span>2</span><div><strong data-i18n="chooseFirmware">Р’С‹Р±РµСЂРёС‚Рµ РїСЂРѕС€РёРІРєСѓ</strong><small id="firmware-step-sub" data-i18n="chooseBoardFirst">РЎРЅР°С‡Р°Р»Р° РІС‹Р±РµСЂРёС‚Рµ РїР»Р°С‚Сѓ</small></div></div>
       <div id="firmware-list" class="cards empty-state" data-empty="true"></div>
     </section>
 
@@ -55,8 +55,8 @@
     </section>
 
     <section id="diy-section" class="panel diy-panel hidden">
-      <div class="step"><span>3</span><div><strong data-i18n="diyTitle">DIY — собрать самому</strong><small data-i18n="diySub">Схемы, пины и пояснения для наших сборок</small></div></div>
-      <div class="diy-intro" data-i18n="diyIntro">DIY — основной раздел MeshAlma. Выберите вариант сборки: ниже показаны назначение модулей, базовое подключение и соответствующая прошивка.</div>
+      <div class="step"><span>3</span><div><strong data-i18n="diyTitle">DIY вЂ” СЃРѕР±СЂР°С‚СЊ СЃР°РјРѕРјСѓ</strong><small data-i18n="diySub">РЎС…РµРјС‹, РїРёРЅС‹ Рё РїРѕСЏСЃРЅРµРЅРёСЏ РґР»СЏ РЅР°С€РёС… СЃР±РѕСЂРѕРє</small></div></div>
+      <div class="diy-intro" data-i18n="diyIntro">DIY вЂ” РѕСЃРЅРѕРІРЅРѕР№ СЂР°Р·РґРµР» MeshAlma. Р’С‹Р±РµСЂРёС‚Рµ РІР°СЂРёР°РЅС‚ СЃР±РѕСЂРєРё: РЅРёР¶Рµ РїРѕРєР°Р·Р°РЅС‹ РЅР°Р·РЅР°С‡РµРЅРёРµ РјРѕРґСѓР»РµР№, Р±Р°Р·РѕРІРѕРµ РїРѕРґРєР»СЋС‡РµРЅРёРµ Рё СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰Р°СЏ РїСЂРѕС€РёРІРєР°.</div>
 
       <div class="diy-tabs">
         <button class="diy-tab active" data-diy="sx1278">ProMicro + SX1278</button>
@@ -65,26 +65,26 @@
       </div>
 
       <div id="diy-content" class="diy-content"></div>
-      <p class="note warning" data-i18n="diyWarning">Перед пайкой сверяйте выбранный профиль прошивки и ревизию платы. Разные модули LoRa могут иметь несовместимый pinout.</p>
+      <p class="note warning" data-i18n="diyWarning">РџРµСЂРµРґ РїР°Р№РєРѕР№ СЃРІРµСЂСЏР№С‚Рµ РІС‹Р±СЂР°РЅРЅС‹Р№ РїСЂРѕС„РёР»СЊ РїСЂРѕС€РёРІРєРё Рё СЂРµРІРёР·РёСЋ РїР»Р°С‚С‹. Р Р°Р·РЅС‹Рµ РјРѕРґСѓР»Рё LoRa РјРѕРіСѓС‚ РёРјРµС‚СЊ РЅРµСЃРѕРІРјРµСЃС‚РёРјС‹Р№ pinout.</p>
     </section>
 
     <section class="panel instructions">
-      <div class="step"><span>4</span><div><strong data-i18n="flashTitle">Прошивка</strong><small id="flash-kind">UF2 / browser workflow</small></div></div>
+      <div class="step"><span>4</span><div><strong data-i18n="flashTitle">РџСЂРѕС€РёРІРєР°</strong><small id="flash-kind">UF2 / browser workflow</small></div></div>
       <ol id="flash-instructions">
-        <li data-i18n="flash1">Подключите плату по USB.</li>
-        <li data-i18n="flash2">Для nRF52840 дважды нажмите RESET, чтобы открыть bootloader.</li>
-        <li data-i18n="flash3">Откройте диск NICENANO / bootloader в Windows.</li>
-        <li data-i18n="flash4">Скачайте выбранный .uf2 и скопируйте его на этот диск.</li>
-        <li data-i18n="flash5">После копирования плата перезагрузится автоматически.</li>
+        <li data-i18n="flash1">РџРѕРґРєР»СЋС‡РёС‚Рµ РїР»Р°С‚Сѓ РїРѕ USB.</li>
+        <li data-i18n="flash2">Р”Р»СЏ nRF52840 РґРІР°Р¶РґС‹ РЅР°Р¶РјРёС‚Рµ RESET, С‡С‚РѕР±С‹ РѕС‚РєСЂС‹С‚СЊ bootloader.</li>
+        <li data-i18n="flash3">РћС‚РєСЂРѕР№С‚Рµ РґРёСЃРє NICENANO / bootloader РІ Windows.</li>
+        <li data-i18n="flash4">РЎРєР°С‡Р°Р№С‚Рµ РІС‹Р±СЂР°РЅРЅС‹Р№ .uf2 Рё СЃРєРѕРїРёСЂСѓР№С‚Рµ РµРіРѕ РЅР° СЌС‚РѕС‚ РґРёСЃРє.</li>
+        <li data-i18n="flash5">РџРѕСЃР»Рµ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїР»Р°С‚Р° РїРµСЂРµР·Р°РіСЂСѓР·РёС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё.</li>
       </ol>
       <div class="roadmap-box">
-        <strong data-i18n="roadmapTitle">Следующий этап</strong>
-        <span data-i18n="roadmapText">Для ESP32 добавим прямую прошивку из Chrome, erase/update и загрузку собственного firmware — как в крупных web-flasher проектах.</span>
+        <strong data-i18n="roadmapTitle">РЎР»РµРґСѓСЋС‰РёР№ СЌС‚Р°Рї</strong>
+        <span data-i18n="roadmapText">Р”Р»СЏ ESP32 РґРѕР±Р°РІРёРј РїСЂСЏРјСѓСЋ РїСЂРѕС€РёРІРєСѓ РёР· Chrome, erase/update Рё Р·Р°РіСЂСѓР·РєСѓ СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ firmware вЂ” РєР°Рє РІ РєСЂСѓРїРЅС‹С… web-flasher РїСЂРѕРµРєС‚Р°С….</span>
       </div>
     </section>
 
     <section class="panel terminal-panel">
-      <div class="step"><span>5</span><div><strong data-i18n="serialTitle">Serial Console</strong><small>Chrome / Edge · Web Serial · 115200</small></div></div>
+      <div class="step"><span>5</span><div><strong data-i18n="serialTitle">Serial Console</strong><small>Chrome / Edge В· Web Serial В· 115200</small></div></div>
       <div class="terminal-toolbar">
         <button id="serial-connect" class="primary button" data-i18n="connect">Connect USB Serial</button>
         <button id="serial-clear" class="secondary button" data-i18n="clear">Clear</button>
@@ -114,14 +114,74 @@
             <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button>
           </div>
         </div>
-        <p class="note"><span data-i18n="commandTip">Нажмите команду для немедленной отправки. Команды со значением вводите вручную:</span>
+        <p class="note"><span data-i18n="commandTip">РќР°Р¶РјРёС‚Рµ РєРѕРјР°РЅРґСѓ РґР»СЏ РЅРµРјРµРґР»РµРЅРЅРѕР№ РѕС‚РїСЂР°РІРєРё. РљРѕРјР°РЅРґС‹ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј РІРІРѕРґРёС‚Рµ РІСЂСѓС‡РЅСѓСЋ:</span>
           <code>set freq 434.030</code>, <code>set name Sensor-Test-01</code>, <code>set guest.password test</code>, <code>password admin123</code>.
         </p>
       </div>
     </section>
 
+
+    <section class="panel test-builds-panel">
+      <div class="step"><span>6</span><div><strong data-i18n="testBuildsTitle">Тестовые прошивки</strong><small data-i18n="testBuildsSub">Версии, изменения, известные проблемы и пожелания</small></div></div>
+      <div class="release-grid">
+        <article class="release-card">
+          <div class="release-head"><div><strong>SENSOR · SX1278</strong><small>nRF52840 ProMicro · 433/434 MHz</small></div><span class="release-status testing">TESTING</span></div>
+          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
+          <h4 data-i18n="included">Включено</h4>
+          <ul><li>Authenticated SENSOR endpoint</li><li>GPS telemetry</li><li>sensor scan</li><li>USB Serial CLI</li></ul>
+          <h4 data-i18n="knownIssues">Известные проблемы</h4>
+          <p class="muted" data-i18n="sensorKnown">Новая сборка с temperature advert и remote Admin password fix проходит hardware-тест перед публикацией.</p>
+        </article>
+        <article class="release-card">
+          <div class="release-head"><div><strong>Companion · SH1106</strong><small>nRF52840 ProMicro · SX1278</small></div><span class="release-status testing">TESTING</span></div>
+          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
+          <p class="muted" data-i18n="sh1106Notes">История сообщений, кириллица, RSSI/SNR и one-button UI.</p>
+        </article>
+        <article class="release-card">
+          <div class="release-head"><div><strong>Companion · SSD1306</strong><small>nRF52840 ProMicro · SX1278</small></div><span class="release-status testing">TESTING</span></div>
+          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
+          <p class="muted" data-i18n="ssdNotes">Regression build для SSD1306 display profile.</p>
+        </article>
+        <article class="release-card">
+          <div class="release-head"><div><strong>Repeater · E22/SX126x</strong><small>nRF52840 ProMicro · 433/434 MHz</small></div><span class="release-status testing">TESTING</span></div>
+          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
+          <p class="muted" data-i18n="repeaterNotes">Тестовая сборка для E22/SX126x; проверяйте модуль, частоту и питание перед прошивкой.</p>
+        </article>
+      </div>
+      <div class="wishlist-box"><strong data-i18n="wishlistTitle">Хотелки / Wishlist</strong><span data-i18n="wishlistText">Здесь будем отмечать запросы сообщества, результаты полевых тестов и функции для следующей сборки.</span></div>
+    </section>
+
+    <section class="panel community-panel">
+      <div class="step"><span>7</span><div><strong data-i18n="communityTitle">Community & Testing</strong><small data-i18n="communitySub">Обсуждение, тесты и обратная связь</small></div></div>
+      <div class="community-grid">
+        <div class="community-card">
+          <div class="community-icon">✈</div>
+          <div><h3>MeshCore KZ</h3><p data-i18n="communityText">Казахстанское сообщество: сети, DIY-сборки, тестовые прошивки и полевые испытания.</p><a class="primary compact" href="https://t.me/MeshCoreKZ" target="_blank" rel="noopener noreferrer" data-i18n="joinTelegram">Открыть Telegram</a></div>
+        </div>
+        <div class="community-card">
+          <div class="community-icon">★</div>
+          <div><h3 data-i18n="testersTitle">Top testers & contributors</h3><p data-i18n="testersText">Участники будут добавляться только с их согласия. Спасибо всем, кто тестирует прошивки, железо и сеть.</p><span class="badge" data-i18n="comingWithPermission">Имена появятся после согласия</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel credits-panel">
+      <div class="step"><span>8</span><div><strong data-i18n="creditsTitle">Credits & Upstream</strong><small data-i18n="creditsSub">Открытые проекты, на которых основана часть работы</small></div></div>
+      <div class="credits-grid">
+        <article class="credit-card">
+          <h3>ZephCore</h3>
+          <p data-i18n="zephCredit">MeshAlma firmware использует и адаптирует части открытого ZephCore и архитектурные решения из ветки dev проекта shadowroot2/ZephCore.</p>
+          <div class="credit-links"><a href="https://github.com/shadowroot2/ZephCore/tree/dev/zephcore" target="_blank" rel="noopener noreferrer">shadowroot2/ZephCore · dev</a><a href="https://github.com/shadowroot2/ZephCore/blob/dev/zephcore/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a></div>
+        </article>
+        <article class="credit-card">
+          <h3>MeshCore compatibility</h3>
+          <p data-i18n="meshcoreCredit">MeshAlma — независимый community-проект и не является официальным дистрибутивом MeshCore или ZephCore.</p>
+          <div class="credit-links"><a href="THIRD_PARTY_NOTICES.md" target="_blank" data-i18n="thirdParty">Third-party notices</a></div>
+        </article>
+      </div>
+    </section>
     <footer>
-      <strong>MeshAlma Flash</strong> · <span data-i18n="footer">независимый community-проект. Проверяйте частоту, распиновку и модель платы перед прошивкой.</span>
+      <strong>MeshAlma Flash</strong> В· <span data-i18n="footer">РЅРµР·Р°РІРёСЃРёРјС‹Р№ community-РїСЂРѕРµРєС‚. РџСЂРѕРІРµСЂСЏР№С‚Рµ С‡Р°СЃС‚РѕС‚Сѓ, СЂР°СЃРїРёРЅРѕРІРєСѓ Рё РјРѕРґРµР»СЊ РїР»Р°С‚С‹ РїРµСЂРµРґ РїСЂРѕС€РёРІРєРѕР№.</span>
     </footer>
   </main>
   <script src="js/flasher.js"></script>
