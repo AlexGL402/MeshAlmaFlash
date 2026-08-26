@@ -2,7 +2,7 @@ const I18N={
 ru:{
  heroTitle:'Firmware Flasher',heroText:'Выберите плату и проверенную прошивку, затем настройте узел через USB Serial.',independent:'Независимый community-проект',
  chooseBoard:'Выберите плату',chooseBoardSub:'Поддерживаемое и планируемое железо',filterAll:'Все',chooseFirmware:'Выберите прошивку',chooseBoardFirst:'Сначала выберите плату',
- selectedBuild:'ТАҢДАЛҒАН ЖИНАҚ',comingSoon:'Прошивка скоро',diyTitle:'DIY — собрать самому',diySub:'Схемы, пины и пояснения для наших сборок',
+ selectedBuild:'ВЫБРАННАЯ СБОРКА',comingSoon:'Прошивка скоро',diyTitle:'DIY — собрать самому',diySub:'Схемы, пины и пояснения для наших сборок',
  diyIntro:'DIY — основной раздел MeshAlma. Выберите вариант сборки: ниже показаны назначение модулей, базовое подключение и соответствующая прошивка.',
  diyWarning:'Перед пайкой сверяйте выбранный профиль прошивки и ревизию платы. Разные модули LoRa могут иметь несовместимый pinout.',
  flashTitle:'Прошивка',flash1:'Подключите плату по USB.',flash2:'Для nRF52840 дважды нажмите RESET, чтобы открыть bootloader.',flash3:'Откройте диск NICENANO / bootloader в Windows.',flash4:'Скачайте выбранный .uf2 и скопируйте его на этот диск.',flash5:'После копирования плата перезагрузится автоматически.',
@@ -18,7 +18,7 @@ ru:{
  testersTitle:'Top testers & contributors',testersText:'Участники будут добавляться только с их согласия. Спасибо всем, кто тестирует прошивки, железо и сеть.',comingWithPermission:'Имена появятся после согласия',
  creditsTitle:'Credits & Upstream',creditsSub:'Открытые проекты, на которых основана часть работы',zephCredit:'MeshAlma firmware использует и адаптирует части открытого ZephCore и архитектурные решения из ветки dev проекта shadowroot2/ZephCore.',
  meshcoreCredit:'MeshAlma — независимый community-проект и не является официальным дистрибутивом MeshCore или ZephCore.',thirdParty:'Third-party notices',footer:'независимый community-проект. Проверяйте частоту, распиновку и модель платы перед прошивкой.',
- download:'Скачать UF2',ready:'готово',planned:'планируется',firmwaresFor:'Прошивки для'
+ download:'Скачать UF2',ready:'готово',planned:'планируется',firmwaresFor:'Прошивки для',statusLabel:'Статус',boardLabel:'Плата',radioLabel:'Радио',bandLabel:'Диапазон',manifestError:'Не удалось загрузить каталог прошивок. Обновите страницу или проверьте manifest.json.'
 },
 en:{
  heroTitle:'Firmware Flasher',heroText:'Choose a board and a tested firmware, then configure the node directly over USB Serial.',independent:'Independent community project',
@@ -39,7 +39,7 @@ en:{
  testersTitle:'Top testers & contributors',testersText:'Participants will only be listed with their permission. Thanks to everyone testing firmware, hardware and the network.',comingWithPermission:'Names will appear with permission',
  creditsTitle:'Credits & Upstream',creditsSub:'Open-source projects that contributed to this work',zephCredit:'MeshAlma firmware uses and adapts parts of the open-source ZephCore project and architectural work from the shadowroot2/ZephCore dev branch.',
  meshcoreCredit:'MeshAlma is an independent community project and is not an official MeshCore or ZephCore distribution.',thirdParty:'Third-party notices',footer:'independent community project. Verify frequency, pinout and board model before flashing.',
- download:'Download UF2',ready:'ready',planned:'planned',firmwaresFor:'Firmware for'
+ download:'Download UF2',ready:'ready',planned:'planned',firmwaresFor:'Firmware for',statusLabel:'Status',boardLabel:'Board',radioLabel:'Radio',bandLabel:'Band',manifestError:'The firmware catalog could not be loaded. Refresh the page or check manifest.json.'
 },
 kk:{
  heroTitle:'Firmware Flasher',heroText:'Платаны және тексерілген firmware таңдаңыз, содан кейін түйінді USB Serial арқылы баптаңыз.',independent:'Тәуелсіз community-жоба',
@@ -60,23 +60,24 @@ kk:{
  testersTitle:'Top testers & contributors',testersText:'Қатысушылар тек өз келісімімен жарияланады. Firmware, hardware және желіні тестілейтін барлық адамға рақмет.',comingWithPermission:'Аттар келісімнен кейін шығады',
  creditsTitle:'Credits & Upstream',creditsSub:'Жұмысқа үлес қосқан ашық жобалар',zephCredit:'MeshAlma firmware ашық ZephCore жобасының бөліктерін және shadowroot2/ZephCore dev тармағындағы архитектуралық шешімдерді қолданады және бейімдейді.',
  meshcoreCredit:'MeshAlma — тәуелсіз community-жоба және MeshCore немесе ZephCore ресми дистрибутиві емес.',thirdParty:'Third-party notices',footer:'тәуелсіз community-жоба. Прошивка алдында жиілікті, pinout пен плата моделін тексеріңіз.',
- download:'UF2 жүктеу',ready:'дайын',planned:'жоспарда',firmwaresFor:'Firmware'
+ download:'UF2 жүктеу',ready:'дайын',planned:'жоспарда',firmwaresFor:'Firmware',statusLabel:'Күйі',boardLabel:'Плата',radioLabel:'Радио',bandLabel:'Диапазон',manifestError:'Firmware каталогын жүктеу мүмкін болмады. Бетті жаңартыңыз немесе manifest.json файлын тексеріңіз.'
 }};
 
 const boards=[
- {id:'diy-promicro',name:'DIY В· nRF52840 ProMicro',vendor:'DIY',chip:'nrf52840',group:['nrf52840','diy'],status:'ready',icon:'🛠️',desc:{ru:'Наш основной DIY-конструктор: SX1278 или E22/SX126x, дисплей, GPS и датчики.',en:'Our main DIY platform: SX1278 or E22/SX126x, display, GPS and sensors.',kk:'Негізгі DIY платформа: SX1278 немесе E22/SX126x, дисплей, GPS және сенсорлар.'}},
+ {id:'diy-promicro',name:'DIY · nRF52840 ProMicro',vendor:'DIY',chip:'nrf52840',group:['nrf52840','diy'],status:'ready',icon:'🛠️',desc:{ru:'Наш основной DIY-конструктор: SX1278 или E22/SX126x, дисплей, GPS и датчики.',en:'Our main DIY platform: SX1278 or E22/SX126x, display, GPS and sensors.',kk:'Негізгі DIY платформа: SX1278 немесе E22/SX126x, дисплей, GPS және сенсорлар.'}},
  {id:'heltec-v3',name:'Heltec LoRa 32 V3',vendor:'Heltec',chip:'esp32-s3',group:['esp32'],status:'planned',icon:'📡',desc:{ru:'ESP32-S3 + SX1262. Поддержка профилей готовится.',en:'ESP32-S3 + SX1262. Firmware profiles are planned.',kk:'ESP32-S3 + SX1262. Firmware профильдері жоспарланған.'}},
  {id:'heltec-v4',name:'Heltec LoRa 32 V4',vendor:'Heltec',chip:'esp32-s3',group:['esp32'],status:'planned',icon:'📡',desc:{ru:'Новое поколение Heltec. Добавим после hardware-проверки.',en:'New Heltec generation. Will be added after hardware validation.',kk:'Жаңа Heltec буыны. Hardware тесттен кейін қосылады.'}},
  {id:'t1000-e',name:'SenseCAP T1000-E',vendor:'Seeed',chip:'nrf52840',group:['nrf52840'],status:'planned',icon:'🧭',desc:{ru:'Компактный nRF52840 tracker с GNSS. Профиль запланирован.',en:'Compact nRF52840 tracker with GNSS. Profile planned.',kk:'GNSS бар ықшам nRF52840 tracker. Профиль жоспарланған.'}},
- {id:'t-echo',name:'LILYGO T-Echo',vendor:'LilyGo',chip:'nrf52840',group:['nrf52840'],status:'planned',icon:'📟',desc:{ru:'nRF52840 + LoRa + экран. Добавим проверенную сборку.',en:'nRF52840 + LoRa + display. A validated build is planned.',kk:'nRF52840 + LoRa + экран. Тексерілген жинақ жоспарланған.'}}
+ {id:'t-echo',name:'LILYGO T-Echo',vendor:'LilyGo',chip:'nrf52840',group:['nrf52840'],status:'planned',icon:'📟',desc:{ru:'nRF52840 + LoRa + экран. Добавим проверенную сборку.',en:'nRF52840 + LoRa + display. A validated build is planned.',kk:'nRF52840 + LoRa + экран. Тексерілген жинақ жоспарланған.'}},
+ {id:'espnow-node',name:'ESP-NOW Node',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'📶',desc:{ru:'Компактный endpoint для ESP-NOW mesh.',en:'Compact endpoint for an ESP-NOW mesh.',kk:'ESP-NOW mesh үшін ықшам endpoint.'}},
+ {id:'espnow-repeater',name:'ESP-NOW Repeater',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'↔',desc:{ru:'Транзитный ESP-NOW repeater.',en:'Transit ESP-NOW repeater.',kk:'Транзиттік ESP-NOW repeater.'}},
+ {id:'espnow-companion',name:'ESP-NOW Companion',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'📱',desc:{ru:'BLE/USB Companion с ESP-NOW транспортом.',en:'BLE/USB Companion using ESP-NOW transport.',kk:'ESP-NOW transport бар BLE/USB Companion.'}},
+ {id:'espnow-lora-bridge',name:'ESP-NOW + LoRa Bridge',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'🔀',desc:{ru:'Мост между ESP-NOW и LoRa.',en:'Bridge between ESP-NOW and LoRa.',kk:'ESP-NOW және LoRa арасындағы bridge.'}},
+ {id:'zbridge-s3',name:'Z-Bridge S3',vendor:'MeshAlma',chip:'ESP32-S3',group:['esp32','espnow'],status:'planned',icon:'🌐',desc:{ru:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE и Web.',en:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE and Web.',kk:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE және Web.'}}
 ];
 
-const builds=[
- {id:'sensor-sx1278',board:'diy-promicro',name:'SENSOR В· SX1278',desc:{ru:'Endpoint telemetry SENSOR с GPS, discovery и sensor scan.',en:'Endpoint telemetry SENSOR with GPS, discovery and sensor scan.',kk:'GPS, discovery және sensor scan бар SENSOR endpoint.'},tags:['nRF52840','SX1278','SENSOR'],file:'firmware/nrf52840/sensor-sx1278.uf2',ready:true},
- {id:'companion-sh1106',board:'diy-promicro',name:'Companion В· SH1106',desc:{ru:'Companion с SH1106, кириллицей, историей сообщений и one-button UI.',en:'Companion with SH1106, Cyrillic rendering, message history and one-button UI.',kk:'SH1106, Cyrillic, хабар тарихы және one-button UI бар Companion.'},tags:['nRF52840','SX1278','SH1106'],file:'firmware/nrf52840/companion-sx1278-sh1106.uf2',ready:true},
- {id:'companion-ssd1306',board:'diy-promicro',name:'Companion В· SSD1306',desc:{ru:'Companion для SSD1306 display profile.',en:'Companion build for SSD1306 display profile.',kk:'SSD1306 display profile үшін Companion.'},tags:['nRF52840','SX1278','SSD1306'],file:'firmware/nrf52840/companion-sx1278-ssd1306.uf2',ready:true},
- {id:'repeater-sx126x',board:'diy-promicro',name:'Repeater В· E22 / SX126x 433',desc:{ru:'Repeater для nRF52840 + E22/SX126x 433/434 MHz.',en:'Repeater for nRF52840 + E22/SX126x 433/434 MHz.',kk:'nRF52840 + E22/SX126x 433/434 MHz үшін Repeater.'},tags:['nRF52840','SX126x','433/434'],file:'firmware/nrf52840/repeater-sx126x-433.uf2',ready:true}
-];
+let builds=[];
+let manifestError='';
 
 const DIY={
  sx1278:{
@@ -113,6 +114,13 @@ const meta=document.querySelector('#selected-meta');
 const download=document.querySelector('#download');
 const diySection=document.querySelector('#diy-section');
 const fwSub=document.querySelector('#firmware-step-sub');
+const testBuilds=document.querySelector('#test-builds');
+const escapeHtml=(value)=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const buildDescription=(build)=>{
+ const description=build?.description;
+ if(description&&typeof description==='object')return description[lang]||description.en||'';
+ return typeof description==='string'?description:'';
+};
 
 function applyI18n(){
  document.documentElement.lang=lang;
@@ -120,6 +128,7 @@ function applyI18n(){
  document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
  renderBoards(document.querySelector('.filter.active')?.dataset.filter||'all');
  renderFirmware();
+ renderTestBuilds();
  renderDIY(document.querySelector('.diy-tab.active')?.dataset.diy||'sx1278');
  if(selectedBuild) showBuild(selectedBuild);
 }
@@ -130,7 +139,7 @@ function renderBoards(filter='all'){
  boards.filter(b=>filter==='all'||b.group.includes(filter)).forEach(b=>{
   const el=document.createElement('button');
   el.className=`board-card ${b.status==='planned'?'planned':''} ${selectedBoard===b.id?'active':''}`;
-  el.innerHTML=`<div class="board-head"><div><strong>${b.name}</strong><small>${b.vendor} В· ${b.chip}</small></div><span class="board-icon">${b.icon}</span></div><small>${b.desc[lang]}</small><div class="badges"><span class="status ${b.status}">${b.status==='ready'?t('ready'):t('planned')}</span>${b.group.includes('diy')?'<span class="badge">DIY</span>':''}</div>`;
+  el.innerHTML=`<div class="board-head"><div><strong>${b.name}</strong><small>${b.vendor} · ${b.chip}</small></div><span class="board-icon">${b.icon}</span></div><small>${b.desc[lang]}</small><div class="badges"><span class="status ${b.status}">${b.status==='ready'?t('ready'):t('planned')}</span>${b.group.includes('diy')?'<span class="badge">DIY</span>':''}</div>`;
   el.addEventListener('click',()=>selectBoard(b.id));
   boardList.appendChild(el);
  });
@@ -148,19 +157,20 @@ function renderFirmware(){
  firmwareList.innerHTML='';
  const board=boards.find(b=>b.id===selectedBoard);
  fwSub.textContent=board?`${t('firmwaresFor')} ${board.name}`:t('chooseBoardFirst');
+ if(manifestError){firmwareList.innerHTML=`<div class="manifest-error">${escapeHtml(t('manifestError'))}</div>`;return}
  const items=builds.filter(x=>x.board===selectedBoard);
  if(!items.length){
   const p=document.createElement('div');p.className='note';p.textContent=board?.status==='planned'?`${t('planned')}: ${board.name}`:t('chooseBoardFirst');firmwareList.appendChild(p);return;
  }
  items.forEach(build=>{
   const b=document.createElement('button');b.className='card';b.type='button';
-  b.innerHTML=`<strong>${build.name}</strong><small>${build.desc[lang]}</small><div class="badges">${build.tags.map(x=>`<span class="badge">${x}</span>`).join('')}</div>`;
+  b.innerHTML=`<strong>${escapeHtml(build.name)}</strong><small>${escapeHtml(buildDescription(build))}</small><dl class="firmware-meta"><div><dt>${t('version')}</dt><dd>${escapeHtml(build.version)}</dd></div><div><dt>${t('buildDate')}</dt><dd>${escapeHtml(build.build_date)}</dd></div><div><dt>${t('statusLabel')}</dt><dd>${escapeHtml(build.status)}</dd></div><div><dt>${t('boardLabel')}</dt><dd>${escapeHtml(build.mcu)}</dd></div><div><dt>${t('radioLabel')}</dt><dd>${escapeHtml(build.radio)}</dd></div><div><dt>${t('bandLabel')}</dt><dd>${escapeHtml(build.band)}</dd></div></dl>`;
   b.addEventListener('click',()=>showBuild(build,b));firmwareList.appendChild(b);
  });
 }
 function showBuild(build,button){
  selectedBuild=build;document.querySelectorAll('.card').forEach(x=>x.classList.remove('active'));if(button)button.classList.add('active');
- selected.classList.remove('hidden');nameEl.textContent=build.name;descEl.textContent=build.desc[lang];meta.textContent=build.tags.join(' В· ');
+ selected.classList.remove('hidden');nameEl.textContent=build.name;descEl.textContent=buildDescription(build);meta.textContent=[build.version,build.status,build.mcu,build.radio,build.band].join(' · ');
  if(build.ready){download.href=build.file;download.download='';download.textContent=t('download');download.classList.remove('disabled');download.removeAttribute('aria-disabled')}
  else{download.removeAttribute('href');download.textContent=t('comingSoon');download.classList.add('disabled');download.setAttribute('aria-disabled','true')}
 }
@@ -168,7 +178,7 @@ function showBuild(build,button){
 function renderDIY(key){
  document.querySelectorAll('.diy-tab').forEach(x=>x.classList.toggle('active',x.dataset.diy===key));
  const d=DIY[key];const rows=d.pins.map(([a,b])=>`<tr><td>${a}</td><td><code>${b}</code></td></tr>`).join('');
- document.querySelector('#diy-content').innerHTML=`<div class="diy-block"><h3>${d.title}</h3><p>${d.why[lang]}</p><p>${d.notes[lang]}</p></div><div class="diy-block"><h3>Pinout</h3><table class="pin-table"><thead><tr><th>Signal</th><th>Pin</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+ document.querySelector('#diy-content').innerHTML=`<div class="diy-block"><h3>${d.title}</h3><p>${d.why[lang]}</p><p>${d.notes[lang]}</p><div class="diy-placeholders"><div><strong>Schematic</strong><small>Image placeholder</small></div><div><strong>Wiring diagram</strong><small>Image placeholder</small></div><div><strong>BOM</strong><small>Parts list placeholder</small></div><div><strong>Compatible firmware</strong><small>${builds.filter(b=>b.category==='diy').map(b=>escapeHtml(b.name)).join(', ')||'—'}</small></div></div></div><div class="diy-block"><h3>Pinout</h3><table class="pin-table"><thead><tr><th>Signal</th><th>Pin</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 document.querySelectorAll('.diy-tab').forEach(b=>b.addEventListener('click',()=>renderDIY(b.dataset.diy)));
 
@@ -178,14 +188,54 @@ const stateEl=document.querySelector('#serial-state');
 const terminal=document.querySelector('#terminal');
 const form=document.querySelector('#terminal-form');
 const input=document.querySelector('#terminal-input');
+const dfuBtn=document.querySelector('#serial-dfu');
 let port=null,reader=null,writer=null,readLoopActive=false;
 const encoder=new TextEncoder(),decoder=new TextDecoder();
 function appendTerminal(text){terminal.textContent+=text;terminal.scrollTop=terminal.scrollHeight}
 function setState(text,online=false){stateEl.textContent=text;stateEl.classList.toggle('online',online)}
 async function disconnectSerial(){readLoopActive=false;try{if(reader){await reader.cancel();reader.releaseLock()}}catch{}reader=null;try{if(writer){writer.releaseLock()}}catch{}writer=null;try{if(port){await port.close()}}catch{}port=null;connectBtn.textContent=t('connect');setState(t('disconnected'),false)}
 async function readSerial(){if(!port?.readable)return;reader=port.readable.getReader();readLoopActive=true;try{while(readLoopActive){const {value,done}=await reader.read();if(done)break;if(value)appendTerminal(decoder.decode(value,{stream:true}))}}catch(err){appendTerminal(`\n[serial read error] ${err.message}\n`)}finally{try{reader.releaseLock()}catch{}reader=null;if(readLoopActive)await disconnectSerial()}}
-async function connectSerial(){if(!('serial' in navigator)){appendTerminal('\nWeb Serial requires Chrome/Edge over HTTPS.\n');return}if(port){await disconnectSerial();return}try{port=await navigator.serial.requestPort();await port.open({baudRate:115200,dataBits:8,stopBits:1,parity:'none',flowControl:'none'});writer=port.writable.getWriter();connectBtn.textContent='Disconnect';setState('Connected В· 115200',true);appendTerminal('\n[connected 115200 8N1]\n');readSerial()}catch(err){appendTerminal(`\n[connect error] ${err.message}\n`);await disconnectSerial()}}
+async function connectSerial(){if(!('serial' in navigator)){appendTerminal('\nWeb Serial requires Chrome/Edge over HTTPS.\n');return}if(port){await disconnectSerial();return}try{port=await navigator.serial.requestPort();await port.open({baudRate:115200,dataBits:8,stopBits:1,parity:'none',flowControl:'none'});writer=port.writable.getWriter();connectBtn.textContent='Disconnect';setState('Connected · 115200',true);appendTerminal('\n[connected 115200 8N1]\n');readSerial()}catch(err){appendTerminal(`\n[connect error] ${err.message}\n`);await disconnectSerial()}}
 async function sendCommand(command){const cmd=String(command||'').trim();if(!cmd)return;if(!writer){appendTerminal(`\n> ${cmd}\n[not connected]\n`);return}appendTerminal(`\n> ${cmd}\n`);try{await writer.write(encoder.encode(cmd+'\r\n'))}catch(err){appendTerminal(`[write error] ${err.message}\n`)}}
-connectBtn.addEventListener('click',connectSerial);clearBtn.addEventListener('click',()=>{terminal.textContent=''});form.addEventListener('submit',async e=>{e.preventDefault();const cmd=input.value;input.value='';await sendCommand(cmd);input.focus()});document.querySelectorAll('[data-command]').forEach(btn=>btn.addEventListener('click',()=>sendCommand(btn.dataset.command)));window.addEventListener('beforeunload',()=>{if(port)disconnectSerial()});
+connectBtn.addEventListener('click', connectSerial);
+clearBtn.addEventListener('click', () => {
+  terminal.textContent = '';
+});
 
-applyI18n();selectBoard('diy-promicro');
+dfuBtn.addEventListener('click', async () => {
+  await sendCommand('dfu');
+});
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const cmd = input.value;
+  input.value = '';
+  await sendCommand(cmd);
+  input.focus();
+});
+
+document.querySelectorAll('[data-command]').forEach(btn =>
+  btn.addEventListener('click', () => sendCommand(btn.dataset.command))
+);
+
+window.addEventListener('beforeunload', () => {
+  if (port) disconnectSerial();
+});
+function renderTestBuilds(){
+ if(!testBuilds)return;
+ if(manifestError){testBuilds.innerHTML=`<div class="manifest-error">${escapeHtml(t('manifestError'))}</div>`;return}
+ testBuilds.innerHTML=builds.map(build=>`<article class="release-card"><div class="release-head"><div><strong>${escapeHtml(build.name)}</strong><small>${escapeHtml(build.mcu)} · ${escapeHtml(build.radio)} · ${escapeHtml(build.band)}</small></div><span class="release-status ${escapeHtml(build.status)}">${escapeHtml(build.status.toUpperCase())}</span></div><dl class="release-meta"><div><dt>${t('version')}</dt><dd>${escapeHtml(build.version)}</dd></div><div><dt>${t('buildDate')}</dt><dd>${escapeHtml(build.build_date)}</dd></div></dl><h4>${t('included')}</h4><ul>${build.included.map(item=>`<li>${escapeHtml(item)}</li>`).join('')}</ul><h4>${t('knownIssues')}</h4><p class="muted">${build.known_issues.length?build.known_issues.map(escapeHtml).join(' '):'—'}</p></article>`).join('');
+}
+
+async function loadManifest(){
+ try{
+  const response=await fetch('manifest.json',{cache:'no-store'});
+  if(!response.ok)throw new Error(`HTTP ${response.status}`);
+  const manifest=await response.json();
+  if(!Array.isArray(manifest.firmware))throw new Error('firmware array missing');
+  builds=manifest.firmware;
+ }catch(error){manifestError=String(error?.message||error)}
+ applyI18n();selectBoard('diy-promicro');
+}
+
+loadManifest();

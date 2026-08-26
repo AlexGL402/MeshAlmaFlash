@@ -34,6 +34,7 @@
           <button class="filter" data-filter="esp32">ESP32</button>
           <button class="filter" data-filter="nrf52840">nRF52840</button>
           <button class="filter" data-filter="diy">DIY</button>
+          <button class="filter" data-filter="espnow">ESP-NOW</button>
         </div>
       </div>
       <div id="board-list" class="board-grid"></div>
@@ -84,10 +85,11 @@
     </section>
 
     <section class="panel terminal-panel">
-      <div class="step"><span>5</span><div><strong data-i18n="serialTitle">Serial Console</strong><small>Chrome / Edge В· Web Serial В· 115200</small></div></div>
+      <div class="step"><span>5</span><div><strong data-i18n="serialTitle">Serial Console</strong><small>Chrome / Edge · Web Serial · 115200</small></div></div>
       <div class="terminal-toolbar">
         <button id="serial-connect" class="primary button" data-i18n="connect">Connect USB Serial</button>
         <button id="serial-clear" class="secondary button" data-i18n="clear">Clear</button>
+        <button id="serial-dfu" class="secondary button">Enter DFU</button>
         <span id="serial-state" class="serial-state" data-i18n="disconnected">Disconnected</span>
       </div>
       <pre id="terminal" class="terminal" aria-live="polite">MeshAlma Web Serial ready. Connect the node to begin.\n</pre>
@@ -106,12 +108,12 @@
         </div>
         <div class="hint-group"><h3>SENSOR</h3>
           <div class="command-chips">
-            <button data-command="sensor status">sensor status</button><button data-command="sensor capabilities">sensor capabilities</button><button data-command="sensor scan">sensor scan</button><button data-command="gps">gps</button><button data-command="gps on">gps on</button><button data-command="gps off">gps off</button>
+            <button data-command="sensor status">sensor status</button><button data-command="sensor capabilities">sensor capabilities</button><button data-command="sensor scan">sensor scan</button><button data-command="gps">gps</button><button data-command="gps on">gps on</button><button data-command="gps off">gps off</button><button data-command="get sensor.advert_temp">get sensor.advert_temp</button><button data-command="set sensor.advert_temp on">set sensor.advert_temp on</button><button data-command="set sensor.advert_temp off">set sensor.advert_temp off</button>
           </div>
         </div>
         <div class="hint-group"><h3 data-i18n="radioIdentity">Radio & identity</h3>
           <div class="command-chips">
-            <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button>
+            <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button><button data-command="get advert.interval">get advert.interval</button><button data-command="set advert.interval 60">set advert.interval 60</button><button data-command="clock">clock</button><button data-command="get public.key">get public.key</button><button data-command="dfu">dfu</button>
           </div>
         </div>
         <p class="note"><span data-i18n="commandTip">Нажмите команду для немедленной отправки. Команды со значением вводите вручную:</span>
@@ -123,31 +125,7 @@
 
     <section class="panel test-builds-panel">
       <div class="step"><span>6</span><div><strong data-i18n="testBuildsTitle">Тестовые прошивки</strong><small data-i18n="testBuildsSub">Версии, изменения, известные проблемы и пожелания</small></div></div>
-      <div class="release-grid">
-        <article class="release-card">
-          <div class="release-head"><div><strong>SENSOR · SX1278</strong><small>nRF52840 ProMicro · 433/434 MHz</small></div><span class="release-status testing">TESTING</span></div>
-          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
-          <h4 data-i18n="included">Включено</h4>
-          <ul><li>Authenticated SENSOR endpoint</li><li>GPS telemetry</li><li>sensor scan</li><li>USB Serial CLI</li></ul>
-          <h4 data-i18n="knownIssues">Известные проблемы</h4>
-          <p class="muted" data-i18n="sensorKnown">Новая сборка с temperature advert и remote Admin password fix проходит hardware-тест перед публикацией.</p>
-        </article>
-        <article class="release-card">
-          <div class="release-head"><div><strong>Companion · SH1106</strong><small>nRF52840 ProMicro · SX1278</small></div><span class="release-status testing">TESTING</span></div>
-          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
-          <p class="muted" data-i18n="sh1106Notes">История сообщений, кириллица, RSSI/SNR и one-button UI.</p>
-        </article>
-        <article class="release-card">
-          <div class="release-head"><div><strong>Companion · SSD1306</strong><small>nRF52840 ProMicro · SX1278</small></div><span class="release-status testing">TESTING</span></div>
-          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
-          <p class="muted" data-i18n="ssdNotes">Regression build для SSD1306 display profile.</p>
-        </article>
-        <article class="release-card">
-          <div class="release-head"><div><strong>Repeater · E22/SX126x</strong><small>nRF52840 ProMicro · 433/434 MHz</small></div><span class="release-status testing">TESTING</span></div>
-          <dl class="release-meta"><div><dt data-i18n="version">Версия</dt><dd>v0.1.0-test</dd></div><div><dt data-i18n="buildDate">Сборка</dt><dd>2026-08-26</dd></div></dl>
-          <p class="muted" data-i18n="repeaterNotes">Тестовая сборка для E22/SX126x; проверяйте модуль, частоту и питание перед прошивкой.</p>
-        </article>
-      </div>
+      <div id="test-builds" class="release-grid"><div class="note">Loading manifest…</div></div>
       <div class="wishlist-box"><strong data-i18n="wishlistTitle">Хотелки / Wishlist</strong><span data-i18n="wishlistText">Здесь будем отмечать запросы сообщества, результаты полевых тестов и функции для следующей сборки.</span></div>
     </section>
 
@@ -181,7 +159,7 @@
       </div>
     </section>
     <footer>
-      <strong>MeshAlma Flash</strong> В· <span data-i18n="footer">независимый community-проект. Проверяйте частоту, распиновку и модель платы перед прошивкой.</span>
+      <strong>MeshAlma Flash</strong> · <span data-i18n="footer">независимый community-проект. Проверяйте частоту, распиновку и модель платы перед прошивкой.</span>
     </footer>
   </main>
   <script src="js/flasher.js"></script>
