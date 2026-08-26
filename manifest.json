@@ -1,0 +1,11 @@
+{
+  "project": "ZephCore MultiRadio",
+  "schema": 1,
+  "firmware": [
+    {"id":"sensor-sx1278","board":"nrf52840","role":"sensor","radio":"sx1278","file":"firmware/nrf52840/sensor-sx1278.uf2","status":"tested"},
+    {"id":"companion-sx1278-sh1106","board":"nrf52840","role":"companion","radio":"sx1278","display":"sh1106","file":"firmware/nrf52840/companion-sx1278-sh1106.uf2","status":"tested"},
+    {"id":"companion-sx1278-ssd1306","board":"nrf52840","role":"companion","radio":"sx1278","display":"ssd1306","file":"firmware/nrf52840/companion-sx1278-ssd1306.uf2","status":"tested"},
+    {"id":"repeater-sx126x-433","board":"nrf52840","role":"repeater","radio":"sx126x","band":"433","file":"firmware/nrf52840/repeater-sx126x-433.uf2","status":"tested"}
+  ]
+}
+

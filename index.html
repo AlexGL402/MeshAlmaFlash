@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>ZephCore Flasher</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brand">ZEPHCORE</div>
+      <h1>Firmware Flasher</h1>
+      <p>Choose a tested firmware, flash the node, then configure it directly from the browser over USB Serial.</p>
+    </header>
+
+    <section class="panel">
+      <div class="step"><span>1</span><div><strong>Board</strong><small>Target hardware</small></div></div>
+      <select id="board"><option value="nrf52840">nRF52840 ProMicro / nice!nano compatible</option></select>
+
+      <div class="step"><span>2</span><div><strong>Firmware</strong><small>Select node role</small></div></div>
+      <div id="firmware-list" class="cards"></div>
+    </section>
+
+    <section id="selected" class="panel selected hidden">
+      <div>
+        <div class="eyebrow">SELECTED BUILD</div>
+        <h2 id="selected-name"></h2>
+        <p id="selected-description"></p>
+        <div id="selected-meta" class="meta"></div>
+      </div>
+      <a id="download" class="primary disabled" aria-disabled="true">Firmware coming soon</a>
+    </section>
+
+    <section class="panel instructions">
+      <div class="step"><span>3</span><div><strong>Flash nRF52840</strong><small>UF2 bootloader</small></div></div>
+      <ol>
+        <li>Connect the board to USB.</li>
+        <li>Double-press RESET to enter the bootloader.</li>
+        <li>Open the <code>NICENANO</code> / bootloader drive in Windows.</li>
+        <li>Download the selected <code>.uf2</code> file and copy it to that drive.</li>
+        <li>The board reboots automatically when flashing completes.</li>
+      </ol>
+    </section>
+
+    <section class="panel terminal-panel">
+      <div class="step"><span>4</span><div><strong>Serial Console</strong><small>Chrome / Edge · Web Serial</small></div></div>
+      <div class="terminal-toolbar">
+        <button id="serial-connect" class="primary button">Connect USB Serial</button>
+        <button id="serial-clear" class="secondary button">Clear</button>
+        <span id="serial-state" class="serial-state">Disconnected</span>
+      </div>
+      <pre id="terminal" class="terminal" aria-live="polite">ZephCore Web Serial ready. Connect the node to begin.\n</pre>
+      <form id="terminal-form" class="terminal-input-row">
+        <span class="prompt">&gt;</span>
+        <input id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command, e.g. status">
+        <button class="secondary button" type="submit">Send</button>
+      </form>
+
+      <div class="command-help">
+        <div class="eyebrow">COMMAND HINTS</div>
+        <div class="hint-group">
+          <h3>Basic</h3>
+          <div class="command-chips">
+            <button data-command="help">help</button><button data-command="status">status</button><button data-command="ver">ver</button><button data-command="board">board</button><button data-command="get role">get role</button>
+          </div>
+        </div>
+        <div class="hint-group">
+          <h3>SENSOR</h3>
+          <div class="command-chips">
+            <button data-command="sensor status">sensor status</button><button data-command="sensor capabilities">sensor capabilities</button><button data-command="sensor scan">sensor scan</button><button data-command="gps">gps</button><button data-command="gps on">gps on</button><button data-command="gps off">gps off</button>
+          </div>
+        </div>
+        <div class="hint-group">
+          <h3>Radio & identity</h3>
+          <div class="command-chips">
+            <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button>
+          </div>
+        </div>
+        <p class="note">Click a command to send it immediately. For values, type the full command below, for example <code>set freq 434.030</code>, <code>set name Sensor-Test-01</code>, <code>set guest.password test</code> or <code>password admin123</code>.</p>
+      </div>
+    </section>
+
+    <footer>ZephCore MultiRadio · experimental firmware — verify radio frequency and hardware before flashing.</footer>
+  </main>
+  <script src="js/flasher.js"></script>
+</body>
+</html>
