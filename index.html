@@ -1,88 +1,128 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="MeshAlma Flash — firmware, DIY guides and USB serial tools for mesh nodes.">
   <title>MeshAlma Flash</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <main class="shell">
     <header class="hero">
-      <div class="brand">MESH ALMA</div>
-      <h1>Firmware Flasher</h1>
-      <p>Choose a tested firmware, flash the node, then configure it directly from the browser over USB Serial.</p>
+      <div class="topbar">
+        <div class="brand">MESH ALMA</div>
+        <div class="lang-switch" aria-label="Language">
+          <button data-lang="ru">RU</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="kk">KZ</button>
+        </div>
+      </div>
+      <h1 data-i18n="heroTitle">Firmware Flasher</h1>
+      <p data-i18n="heroText">Выберите плату и проверенную прошивку, затем настройте узел через USB Serial.</p>
+      <div class="hero-tags">
+        <span>ZephCore-based</span><span>MeshCore-compatible</span><span data-i18n="independent">Independent community project</span>
+      </div>
     </header>
 
     <section class="panel">
-      <div class="step"><span>1</span><div><strong>Board</strong><small>Target hardware</small></div></div>
-      <select id="board"><option value="nrf52840">nRF52840 ProMicro / nice!nano compatible</option></select>
+      <div class="step"><span>1</span><div><strong data-i18n="chooseBoard">Выберите плату</strong><small data-i18n="chooseBoardSub">Поддерживаемое и планируемое железо</small></div></div>
+      <div class="board-toolbar">
+        <div class="filter-chips" id="board-filters">
+          <button class="filter active" data-filter="all" data-i18n="filterAll">Все</button>
+          <button class="filter" data-filter="esp32">ESP32</button>
+          <button class="filter" data-filter="nrf52840">nRF52840</button>
+          <button class="filter" data-filter="diy">DIY</button>
+        </div>
+      </div>
+      <div id="board-list" class="board-grid"></div>
+    </section>
 
-      <div class="step"><span>2</span><div><strong>Firmware</strong><small>Select node role</small></div></div>
-      <div id="firmware-list" class="cards"></div>
+    <section class="panel">
+      <div class="step"><span>2</span><div><strong data-i18n="chooseFirmware">Выберите прошивку</strong><small id="firmware-step-sub" data-i18n="chooseBoardFirst">Сначала выберите плату</small></div></div>
+      <div id="firmware-list" class="cards empty-state" data-empty="true"></div>
     </section>
 
     <section id="selected" class="panel selected hidden">
       <div>
-        <div class="eyebrow">SELECTED BUILD</div>
+        <div class="eyebrow" data-i18n="selectedBuild">SELECTED BUILD</div>
         <h2 id="selected-name"></h2>
         <p id="selected-description"></p>
         <div id="selected-meta" class="meta"></div>
       </div>
-      <a id="download" class="primary disabled" aria-disabled="true">Firmware coming soon</a>
+      <a id="download" class="primary disabled" aria-disabled="true" data-i18n="comingSoon">Firmware coming soon</a>
+    </section>
+
+    <section id="diy-section" class="panel diy-panel hidden">
+      <div class="step"><span>3</span><div><strong data-i18n="diyTitle">DIY — собрать самому</strong><small data-i18n="diySub">Схемы, пины и пояснения для наших сборок</small></div></div>
+      <div class="diy-intro" data-i18n="diyIntro">DIY — основной раздел MeshAlma. Выберите вариант сборки: ниже показаны назначение модулей, базовое подключение и соответствующая прошивка.</div>
+
+      <div class="diy-tabs">
+        <button class="diy-tab active" data-diy="sx1278">ProMicro + SX1278</button>
+        <button class="diy-tab" data-diy="sx126x">ProMicro + E22/SX126x</button>
+        <button class="diy-tab" data-diy="sensor">SENSOR + GPS</button>
+      </div>
+
+      <div id="diy-content" class="diy-content"></div>
+      <p class="note warning" data-i18n="diyWarning">Перед пайкой сверяйте выбранный профиль прошивки и ревизию платы. Разные модули LoRa могут иметь несовместимый pinout.</p>
     </section>
 
     <section class="panel instructions">
-      <div class="step"><span>3</span><div><strong>Flash nRF52840</strong><small>UF2 bootloader</small></div></div>
-      <ol>
-        <li>Connect the board to USB.</li>
-        <li>Double-press RESET to enter the bootloader.</li>
-        <li>Open the <code>NICENANO</code> / bootloader drive in Windows.</li>
-        <li>Download the selected <code>.uf2</code> file and copy it to that drive.</li>
-        <li>The board reboots automatically when flashing completes.</li>
+      <div class="step"><span>4</span><div><strong data-i18n="flashTitle">Прошивка</strong><small id="flash-kind">UF2 / browser workflow</small></div></div>
+      <ol id="flash-instructions">
+        <li data-i18n="flash1">Подключите плату по USB.</li>
+        <li data-i18n="flash2">Для nRF52840 дважды нажмите RESET, чтобы открыть bootloader.</li>
+        <li data-i18n="flash3">Откройте диск NICENANO / bootloader в Windows.</li>
+        <li data-i18n="flash4">Скачайте выбранный .uf2 и скопируйте его на этот диск.</li>
+        <li data-i18n="flash5">После копирования плата перезагрузится автоматически.</li>
       </ol>
+      <div class="roadmap-box">
+        <strong data-i18n="roadmapTitle">Следующий этап</strong>
+        <span data-i18n="roadmapText">Для ESP32 добавим прямую прошивку из Chrome, erase/update и загрузку собственного firmware — как в крупных web-flasher проектах.</span>
+      </div>
     </section>
 
     <section class="panel terminal-panel">
-      <div class="step"><span>4</span><div><strong>Serial Console</strong><small>Chrome / Edge · Web Serial</small></div></div>
+      <div class="step"><span>5</span><div><strong data-i18n="serialTitle">Serial Console</strong><small>Chrome / Edge · Web Serial · 115200</small></div></div>
       <div class="terminal-toolbar">
-        <button id="serial-connect" class="primary button">Connect USB Serial</button>
-        <button id="serial-clear" class="secondary button">Clear</button>
-        <span id="serial-state" class="serial-state">Disconnected</span>
+        <button id="serial-connect" class="primary button" data-i18n="connect">Connect USB Serial</button>
+        <button id="serial-clear" class="secondary button" data-i18n="clear">Clear</button>
+        <span id="serial-state" class="serial-state" data-i18n="disconnected">Disconnected</span>
       </div>
       <pre id="terminal" class="terminal" aria-live="polite">MeshAlma Web Serial ready. Connect the node to begin.\n</pre>
       <form id="terminal-form" class="terminal-input-row">
         <span class="prompt">&gt;</span>
-        <input id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command, e.g. status">
-        <button class="secondary button" type="submit">Send</button>
+        <input id="terminal-input" autocomplete="off" spellcheck="false" placeholder="status">
+        <button class="secondary button" type="submit" data-i18n="send">Send</button>
       </form>
 
       <div class="command-help">
-        <div class="eyebrow">COMMAND HINTS</div>
-        <div class="hint-group">
-          <h3>Basic</h3>
+        <div class="eyebrow" data-i18n="commandHints">COMMAND HINTS</div>
+        <div class="hint-group"><h3 data-i18n="basic">Basic</h3>
           <div class="command-chips">
             <button data-command="help">help</button><button data-command="status">status</button><button data-command="ver">ver</button><button data-command="board">board</button><button data-command="get role">get role</button>
           </div>
         </div>
-        <div class="hint-group">
-          <h3>SENSOR</h3>
+        <div class="hint-group"><h3>SENSOR</h3>
           <div class="command-chips">
             <button data-command="sensor status">sensor status</button><button data-command="sensor capabilities">sensor capabilities</button><button data-command="sensor scan">sensor scan</button><button data-command="gps">gps</button><button data-command="gps on">gps on</button><button data-command="gps off">gps off</button>
           </div>
         </div>
-        <div class="hint-group">
-          <h3>Radio & identity</h3>
+        <div class="hint-group"><h3 data-i18n="radioIdentity">Radio & identity</h3>
           <div class="command-chips">
             <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button>
           </div>
         </div>
-        <p class="note">Click a command to send it immediately. For values, type the full command below, for example <code>set freq 434.030</code>, <code>set name Sensor-Test-01</code>, <code>set guest.password test</code> or <code>password admin123</code>.</p>
+        <p class="note"><span data-i18n="commandTip">Нажмите команду для немедленной отправки. Команды со значением вводите вручную:</span>
+          <code>set freq 434.030</code>, <code>set name Sensor-Test-01</code>, <code>set guest.password test</code>, <code>password admin123</code>.
+        </p>
       </div>
     </section>
 
-    <footer>ZephCore MultiRadio · experimental firmware — verify radio frequency and hardware before flashing.</footer>
+    <footer>
+      <strong>MeshAlma Flash</strong> · <span data-i18n="footer">независимый community-проект. Проверяйте частоту, распиновку и модель платы перед прошивкой.</span>
+    </footer>
   </main>
   <script src="js/flasher.js"></script>
 </body>
