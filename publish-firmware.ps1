@@ -49,7 +49,12 @@ if (-not (Test-Path -LiteralPath $firmwareDirectory -PathType Container)) {
     New-Item -ItemType Directory -Path $firmwareDirectory | Out-Null
 }
 
-$destinationName = "$Id-v$versionNumber.uf2"
+$extension = [System.IO.Path]::GetExtension($Source).ToLowerInvariant()
+if ($extension -notin @('.uf2', '.bin')) {
+    throw "Unsupported firmware extension '$extension'. Expected .uf2 or .bin."
+}
+
+$destinationName = "$Id-v$versionNumber$extension"
 $destinationPath = Join-Path $firmwareDirectory $destinationName
 $sourcePath = (Resolve-Path -LiteralPath $Source).Path
 if ($sourcePath -ne $destinationPath) {
