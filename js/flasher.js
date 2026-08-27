@@ -18,7 +18,7 @@ ru:{
  testersTitle:'Top testers & contributors',testersText:'Участники будут добавляться только с их согласия. Спасибо всем, кто тестирует прошивки, железо и сеть.',comingWithPermission:'Имена появятся после согласия',
  creditsTitle:'Credits & Upstream',creditsSub:'Открытые проекты, на которых основана часть работы',zephCredit:'MeshAlma firmware использует и адаптирует части открытого ZephCore и архитектурные решения из ветки dev проекта shadowroot2/ZephCore.',
  meshcoreCredit:'MeshAlma — независимый community-проект и не является официальным дистрибутивом MeshCore или ZephCore.',thirdParty:'Third-party notices',footer:'независимый community-проект. Проверяйте частоту, распиновку и модель платы перед прошивкой.',
- download:'Скачать UF2',flashEsp32:'Прошить ESP32',eraseEsp32:'Стереть ESP32',ready:'готово',planned:'планируется',firmwaresFor:'Прошивки для',statusLabel:'Статус',boardLabel:'Плата',radioLabel:'Радио',bandLabel:'Диапазон',manifestError:'Не удалось загрузить каталог прошивок. Обновите страницу или проверьте manifest.json.',espConfirmErase:'Полностью стереть flash ESP32? Настройки и identity будут удалены.',espConnecting:'Подключение к ESP32-C3…',espFlashing:'Прошивка…',espComplete:'Прошивка и проверка завершены. Плата перезагружена.',espErased:'Flash стёрт. Плата перезагружена.'
+ download:'Скачать UF2',flashEsp32:'Прошить ESP32',eraseEsp32:'Стереть ESP32',ready:'готово',planned:'планируется',firmwaresFor:'Прошивки для',statusLabel:'Статус',boardLabel:'Плата',radioLabel:'Радио',bandLabel:'Диапазон',manifestError:'Не удалось загрузить каталог прошивок. Обновите страницу или проверьте manifest.json.',espConfirmErase:'Полностью стереть flash ESP32? Настройки и identity будут удалены.',espConnecting:'Подключение к {chip}…',espFlashing:'Прошивка…',espComplete:'Прошивка и проверка завершены. Плата перезагружена.',espErased:'Flash стёрт. Плата перезагружена.'
 },
 en:{
  heroTitle:'Firmware Flasher',heroText:'Choose a board and a tested firmware, then configure the node directly over USB Serial.',independent:'Independent community project',
@@ -39,7 +39,7 @@ en:{
  testersTitle:'Top testers & contributors',testersText:'Participants will only be listed with their permission. Thanks to everyone testing firmware, hardware and the network.',comingWithPermission:'Names will appear with permission',
  creditsTitle:'Credits & Upstream',creditsSub:'Open-source projects that contributed to this work',zephCredit:'MeshAlma firmware uses and adapts parts of the open-source ZephCore project and architectural work from the shadowroot2/ZephCore dev branch.',
  meshcoreCredit:'MeshAlma is an independent community project and is not an official MeshCore or ZephCore distribution.',thirdParty:'Third-party notices',footer:'independent community project. Verify frequency, pinout and board model before flashing.',
- download:'Download UF2',flashEsp32:'Flash ESP32',eraseEsp32:'Erase ESP32',ready:'ready',planned:'planned',firmwaresFor:'Firmware for',statusLabel:'Status',boardLabel:'Board',radioLabel:'Radio',bandLabel:'Band',manifestError:'The firmware catalog could not be loaded. Refresh the page or check manifest.json.',espConfirmErase:'Erase the entire ESP32 flash? Settings and identity will be removed.',espConnecting:'Connecting to ESP32-C3…',espFlashing:'Flashing…',espComplete:'Flash and verification complete. The board was reset.',espErased:'Flash erased. The board was reset.'
+ download:'Download UF2',flashEsp32:'Flash ESP32',eraseEsp32:'Erase ESP32',ready:'ready',planned:'planned',firmwaresFor:'Firmware for',statusLabel:'Status',boardLabel:'Board',radioLabel:'Radio',bandLabel:'Band',manifestError:'The firmware catalog could not be loaded. Refresh the page or check manifest.json.',espConfirmErase:'Erase the entire ESP32 flash? Settings and identity will be removed.',espConnecting:'Connecting to {chip}…',espFlashing:'Flashing…',espComplete:'Flash and verification complete. The board was reset.',espErased:'Flash erased. The board was reset.'
 },
 kk:{
  heroTitle:'Firmware Flasher',heroText:'Платаны және тексерілген firmware таңдаңыз, содан кейін түйінді USB Serial арқылы баптаңыз.',independent:'Тәуелсіз community-жоба',
@@ -60,7 +60,7 @@ kk:{
  testersTitle:'Top testers & contributors',testersText:'Қатысушылар тек өз келісімімен жарияланады. Firmware, hardware және желіні тестілейтін барлық адамға рақмет.',comingWithPermission:'Аттар келісімнен кейін шығады',
  creditsTitle:'Credits & Upstream',creditsSub:'Жұмысқа үлес қосқан ашық жобалар',zephCredit:'MeshAlma firmware ашық ZephCore жобасының бөліктерін және shadowroot2/ZephCore dev тармағындағы архитектуралық шешімдерді қолданады және бейімдейді.',
  meshcoreCredit:'MeshAlma — тәуелсіз community-жоба және MeshCore немесе ZephCore ресми дистрибутиві емес.',thirdParty:'Third-party notices',footer:'тәуелсіз community-жоба. Прошивка алдында жиілікті, pinout пен плата моделін тексеріңіз.',
- download:'UF2 жүктеу',flashEsp32:'ESP32 прошивкалау',eraseEsp32:'ESP32 өшіру',ready:'дайын',planned:'жоспарда',firmwaresFor:'Firmware',statusLabel:'Күйі',boardLabel:'Плата',radioLabel:'Радио',bandLabel:'Диапазон',manifestError:'Firmware каталогын жүктеу мүмкін болмады. Бетті жаңартыңыз немесе manifest.json файлын тексеріңіз.',espConfirmErase:'ESP32 flash жадын толық өшіру керек пе? Баптаулар мен identity жойылады.',espConnecting:'ESP32-C3 құрылғысына қосылу…',espFlashing:'Прошивкалау…',espComplete:'Прошивкалау және тексеру аяқталды. Плата қайта жүктелді.',espErased:'Flash өшірілді. Плата қайта жүктелді.'
+ download:'UF2 жүктеу',flashEsp32:'ESP32 прошивкалау',eraseEsp32:'ESP32 өшіру',ready:'дайын',planned:'жоспарда',firmwaresFor:'Firmware',statusLabel:'Күйі',boardLabel:'Плата',radioLabel:'Радио',bandLabel:'Диапазон',manifestError:'Firmware каталогын жүктеу мүмкін болмады. Бетті жаңартыңыз немесе manifest.json файлын тексеріңіз.',espConfirmErase:'ESP32 flash жадын толық өшіру керек пе? Баптаулар мен identity жойылады.',espConnecting:'{chip} құрылғысына қосылу…',espFlashing:'Прошивкалау…',espComplete:'Прошивкалау және тексеру аяқталды. Плата қайта жүктелді.',espErased:'Flash өшірілді. Плата қайта жүктелді.'
 }};
 
 const boards=[
@@ -74,7 +74,7 @@ const boards=[
  {id:'espnow-repeater',name:'ESP-NOW Repeater',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'↔',desc:{ru:'Транзитный ESP-NOW repeater.',en:'Transit ESP-NOW repeater.',kk:'Транзиттік ESP-NOW repeater.'}},
  {id:'espnow-companion',name:'ESP-NOW Companion',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'📱',desc:{ru:'BLE/USB Companion с ESP-NOW транспортом.',en:'BLE/USB Companion using ESP-NOW transport.',kk:'ESP-NOW transport бар BLE/USB Companion.'}},
  {id:'espnow-lora-bridge',name:'ESP-NOW + LoRa Bridge',vendor:'DIY',chip:'ESP32',group:['esp32','espnow'],status:'planned',icon:'🔀',desc:{ru:'Мост между ESP-NOW и LoRa.',en:'Bridge between ESP-NOW and LoRa.',kk:'ESP-NOW және LoRa арасындағы bridge.'}},
- {id:'zbridge-s3',name:'Z-Bridge S3',vendor:'MeshAlma',chip:'ESP32-S3',group:['esp32','espnow'],status:'planned',icon:'🌐',desc:{ru:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE и Web.',en:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE and Web.',kk:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE және Web.'}}
+ {id:'xiao-esp32s3',name:'Z-Bridge S3',vendor:'MeshAlma',chip:'ESP32-S3',group:['esp32','espnow'],status:'ready',icon:'🌐',desc:{ru:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE и Web.',en:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE and Web.',kk:'ESP32-S3 SuperNode: ESP-NOW, LoRa, BLE және Web.'}}
 ];
 
 let builds=[];
@@ -194,6 +194,8 @@ function normalizeChipName(value){
  return families.find(family=>compact.startsWith(family))||compact;
 }
 function matchesExpectedChip(expected,detected){return normalizeChipName(expected)===normalizeChipName(detected)}
+function selectedEspChip(build){return String(build?.mcu||build?.flash?.chip||'ESP32').toUpperCase()}
+function espConnectingText(build){return t('espConnecting').replace('{chip}',selectedEspChip(build))}
 async function connectEsp(build){
  if(!('serial' in navigator))throw new Error('Web Serial requires Chrome/Edge over HTTPS.');
  const {ESPLoader,Transport}=await loadEspTool();
@@ -213,7 +215,7 @@ async function downloadFirmware(path){
 }
 async function flashSelectedEsp(){
  const build=selectedBuild;if(!build?.flash||build.flash.type!=='esp32')return;
- download.classList.add('disabled');espErase.disabled=true;flashProgress.classList.remove('hidden');flashProgress.value=0;flashStatus.textContent=t('espConnecting');
+ download.classList.add('disabled');espErase.disabled=true;flashProgress.classList.remove('hidden');flashProgress.value=0;flashStatus.textContent=espConnectingText(build);
  let session;
  try{
   const files=[];
@@ -227,7 +229,7 @@ async function flashSelectedEsp(){
 }
 async function eraseSelectedEsp(){
  const build=selectedBuild;if(!build?.flash||build.flash.type!=='esp32'||!confirm(t('espConfirmErase')))return;
- download.classList.add('disabled');espErase.disabled=true;flashStatus.textContent=t('espConnecting');let session;
+ download.classList.add('disabled');espErase.disabled=true;flashStatus.textContent=espConnectingText(build);let session;
  try{session=await connectEsp(build);await session.loader.eraseFlash();await session.loader.after('hard_reset');flashStatus.textContent=t('espErased')}
  catch(error){flashStatus.textContent=`Error: ${error?.message||error}`}
  finally{if(session?.transport)try{await session.transport.disconnect()}catch{}download.classList.remove('disabled');espErase.disabled=false}

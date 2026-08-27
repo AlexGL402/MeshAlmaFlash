@@ -147,9 +147,7 @@
                                           "Sensor telemetry",
                                           "USB Serial CLI"
                                       ],
-                         "known_issues":  [
-                                              "New test build; hardware validation is still required."
-                                          ],
+                         "known_issues":  [],
                          "ready":  true,
                          "category":  "espnow",
                          "flash":  {
