@@ -200,13 +200,20 @@ async function connectEsp(build){
  if(!expected||actual!==expected){await transport.disconnect();throw new Error(`Chip mismatch: expected ${build.flash?.chip}, detected ${detected||'unknown'}.`)}
  return {loader,transport};
 }
+async function downloadFirmware(path){
+ const load=async url=>{try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)return {error:`HTTP ${response.status}`};return {data:new Uint8Array(await response.arrayBuffer())}}catch{return {error:'network error'}}};
+ const pages=await load(path);if(pages.data)return pages.data;
+ const relative=String(path||'').replace(/^\/+/, '');
+ const raw=await load(`https://raw.githubusercontent.com/AlexGL402/MeshAlmaFlash/main/${relative}`);if(raw.data)return raw.data;
+ throw new Error(`Firmware download failed: Pages ${pages.error}; GitHub raw ${raw.error}`);
+}
 async function flashSelectedEsp(){
  const build=selectedBuild;if(!build?.flash||build.flash.type!=='esp32')return;
  download.classList.add('disabled');espErase.disabled=true;flashProgress.classList.remove('hidden');flashProgress.value=0;flashStatus.textContent=t('espConnecting');
  let session;
  try{
   const files=[];
-  for(const file of build.flash.files||[]){const response=await fetch(file.path,{cache:'no-store'});if(!response.ok)throw new Error(`Firmware download failed: HTTP ${response.status}`);const data=new Uint8Array(await response.arrayBuffer());if(file.sha256){const digest=bytesToHex(new Uint8Array(await crypto.subtle.digest('SHA-256',data)));if(digest!==String(file.sha256).toLowerCase())throw new Error('Firmware SHA-256 mismatch.')}files.push({data,address:Number(file.offset)});}
+  for(const file of build.flash.files||[]){const data=await downloadFirmware(file.path);if(file.sha256){const digest=bytesToHex(new Uint8Array(await crypto.subtle.digest('SHA-256',data)));if(digest!==String(file.sha256).toLowerCase())throw new Error('Firmware SHA-256 mismatch.')}files.push({data,address:Number(file.offset)});}
   if(!files.length)throw new Error('No ESP32 flash files in manifest.');
   session=await connectEsp(build);flashStatus.textContent=t('espFlashing');
   await session.loader.writeFlash({fileArray:files,flashMode:build.flash.mode,flashFreq:build.flash.frequency,flashSize:build.flash.size,eraseAll:false,compress:true,reportProgress(_index,written,total){flashProgress.value=total?Math.round(written*100/total):0}});
