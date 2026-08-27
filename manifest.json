@@ -1,10 +1,10 @@
-{
+﻿{
     "project":  "MeshAlma Firmware Flasher",
     "schema":  2,
     "firmware":  [
                      {
                          "id":  "sensor-sx1278",
-                         "name":  "SENSOR · SX1278",
+                         "name":  "SENSOR В· SX1278",
                          "version":  "v0.1.0-test",
                          "build_date":  "2026-08-26",
                          "status":  "testing",
@@ -16,9 +16,9 @@
                          "sha256":  "08f42feaf4f05b63f44d6c8eac4771f61f69014c3d72cdc4fb63eeb859cdd1be",
                          "size":  434688,
                          "description":  {
-                                             "ru":  "Телеметрический SENSOR endpoint с GPS, обнаружением и сканированием датчиков.",
+                                             "ru":  "РўРµР»РµРјРµС‚СЂРёС‡РµСЃРєРёР№ SENSOR endpoint СЃ GPS, РѕР±РЅР°СЂСѓР¶РµРЅРёРµРј Рё СЃРєР°РЅРёСЂРѕРІР°РЅРёРµРј РґР°С‚С‡РёРєРѕРІ.",
                                              "en":  "Endpoint telemetry SENSOR with GPS, discovery and sensor scan.",
-                                             "kk":  "GPS, discovery және сенсорларды сканерлеуі бар телеметриялық SENSOR endpoint."
+                                             "kk":  "GPS, discovery Р¶У™РЅРµ СЃРµРЅСЃРѕСЂР»Р°СЂРґС‹ СЃРєР°РЅРµСЂР»РµСѓС– Р±Р°СЂ С‚РµР»РµРјРµС‚СЂРёСЏР»С‹Т› SENSOR endpoint."
                                          },
                          "included":  [
                                           "Authenticated SENSOR endpoint",
@@ -34,7 +34,7 @@
                      },
                      {
                          "id":  "companion-sx1278-sh1106",
-                         "name":  "Companion · SH1106",
+                         "name":  "Companion В· SH1106",
                          "version":  "v0.1.0-test",
                          "build_date":  "2026-08-26",
                          "status":  "testing",
@@ -46,9 +46,9 @@
                          "sha256":  "420c5ce3834435381f03a36f180600517d612dbd7e0f272971ff7840706e16b5",
                          "size":  889344,
                          "description":  {
-                                             "ru":  "Companion с SH1106, кириллицей, историей сообщений и управлением одной кнопкой.",
+                                             "ru":  "Companion СЃ SH1106, РєРёСЂРёР»Р»РёС†РµР№, РёСЃС‚РѕСЂРёРµР№ СЃРѕРѕР±С‰РµРЅРёР№ Рё СѓРїСЂР°РІР»РµРЅРёРµРј РѕРґРЅРѕР№ РєРЅРѕРїРєРѕР№.",
                                              "en":  "Companion with SH1106, Cyrillic rendering, message history and one-button UI.",
-                                             "kk":  "SH1106, кириллица, хабарлар тарихы және бір батырмалы UI бар Companion."
+                                             "kk":  "SH1106, РєРёСЂРёР»Р»РёС†Р°, С…Р°Р±Р°СЂР»Р°СЂ С‚Р°СЂРёС…С‹ Р¶У™РЅРµ Р±С–СЂ Р±Р°С‚С‹СЂРјР°Р»С‹ UI Р±Р°СЂ Companion."
                                          },
                          "included":  [
                                           "BLE Companion",
@@ -64,7 +64,7 @@
                      },
                      {
                          "id":  "companion-sx1278-ssd1306",
-                         "name":  "Companion · SSD1306",
+                         "name":  "Companion В· SSD1306",
                          "version":  "v0.1.0-test",
                          "build_date":  "2026-08-26",
                          "status":  "testing",
@@ -76,9 +76,9 @@
                          "sha256":  "a6ee5b077f3dec567ddf4bdb504513a20e507354820a129a10dbb261b96c126a",
                          "size":  903680,
                          "description":  {
-                                             "ru":  "Сборка Companion для профиля дисплея SSD1306.",
+                                             "ru":  "РЎР±РѕСЂРєР° Companion РґР»СЏ РїСЂРѕС„РёР»СЏ РґРёСЃРїР»РµСЏ SSD1306.",
                                              "en":  "Companion build for the SSD1306 display profile.",
-                                             "kk":  "SSD1306 дисплей профиліне арналған Companion жинағы."
+                                             "kk":  "SSD1306 РґРёСЃРїР»РµР№ РїСЂРѕС„РёР»С–РЅРµ Р°СЂРЅР°Р»Т“Р°РЅ Companion Р¶РёРЅР°Т“С‹."
                                          },
                          "included":  [
                                           "BLE Companion",
@@ -95,7 +95,7 @@
                      },
                      {
                          "id":  "repeater-sx126x-433",
-                         "name":  "Repeater · E22 / SX126x 433",
+                         "name":  "Repeater В· E22 / SX126x 433",
                          "version":  "v0.1.0-test",
                          "build_date":  "2026-08-26",
                          "status":  "testing",
@@ -107,9 +107,9 @@
                          "sha256":  "0d4a85284c0667920dc924bf5dab2f2261d641a56610a8176cdeeec8a770dcf3",
                          "size":  411136,
                          "description":  {
-                                             "ru":  "Repeater для nRF52840 с E22/SX126x в диапазоне 433/434 МГц.",
+                                             "ru":  "Repeater РґР»СЏ nRF52840 СЃ E22/SX126x РІ РґРёР°РїР°Р·РѕРЅРµ 433/434 РњР“С†.",
                                              "en":  "Repeater for nRF52840 with E22/SX126x at 433/434 MHz.",
-                                             "kk":  "433/434 МГц диапазонындағы E22/SX126x бар nRF52840 Repeater."
+                                             "kk":  "433/434 РњР“С† РґРёР°РїР°Р·РѕРЅС‹РЅРґР°Т“С‹ E22/SX126x Р±Р°СЂ nRF52840 Repeater."
                                          },
                          "included":  [
                                           "Mesh repeater",
@@ -124,7 +124,7 @@
                      },
                      {
                          "id":  "sensor-espnow-c3",
-                         "name":  "SENSOR · ESP32-C3 · ESP-NOW",
+                         "name":  "SENSOR В· ESP32-C3 В· ESP-NOW",
                          "version":  "v0.1.0-test",
                          "build_date":  "2026-08-27",
                          "status":  "testing",
@@ -136,9 +136,9 @@
                          "sha256":  "76a722fda1d4506c1bf4bd2272c64adba10aac8e20bc52a4f6435b7f840cfe76",
                          "size":  733780,
                          "description":  {
-                                             "ru":  "ESP32-C3 SENSOR для ESP-NOW. Endpoint-only, без LoRa и ретрансляции.",
+                                             "ru":  "ESP32-C3 SENSOR РґР»СЏ ESP-NOW. Endpoint-only, Р±РµР· LoRa Рё СЂРµС‚СЂР°РЅСЃР»СЏС†РёРё.",
                                              "en":  "ESP32-C3 SENSOR for ESP-NOW. Endpoint-only, no LoRa or forwarding.",
-                                             "kk":  "ESP-NOW үшін ESP32-C3 SENSOR. Endpoint-only, LoRa және ретрансляция жоқ."
+                                             "kk":  "ESP-NOW ТЇС€С–РЅ ESP32-C3 SENSOR. Endpoint-only, LoRa Р¶У™РЅРµ СЂРµС‚СЂР°РЅСЃР»СЏС†РёСЏ Р¶РѕТ›."
                                          },
                          "included":  [
                                           "Authenticated SENSOR endpoint",
@@ -164,6 +164,105 @@
                                                          "path":  "firmware/esp32/sensor-espnow-c3-v0.1.0-test.bin",
                                                          "offset":  "0x0",
                                                          "sha256":  "76a722fda1d4506c1bf4bd2272c64adba10aac8e20bc52a4f6435b7f840cfe76"
+                                                     }
+                                                 ]
+                                   }
+                     },
+                     {
+                         "id":  "zbridge-s3-stable",
+                         "name":  "Z-Bridge S3 · Stable",
+                         "version":  "2026-08-23",
+                         "build_date":  "2026-08-23",
+                         "status":  "stable",
+                         "board":  "xiao-esp32s3",
+                         "mcu":  "ESP32-S3",
+                         "radio":  "ESP-NOW + LoRa",
+                         "band":  "2.4 GHz + 868 MHz",
+                         "file":  "firmware/esp32/zbridge-s3-stable-2026-08-23.bin",
+                         "sha256":  "1a04e588615f1061e3e0ef3957acc731eee1d96d5af2d8da331ffc26336970ab",
+                         "size":  971348,
+                         "description":  {
+                                             "ru":  "Стабильная сохранённая сборка Z-Bridge S3: ESP-NOW, LoRa 868, Web UI, GPS/SOS и Companion-функции.",
+                                             "en":  "Saved stable Z-Bridge S3 build with ESP-NOW, LoRa 868, Web UI, GPS/SOS and Companion functionality.",
+                                             "kk":  "ESP-NOW, LoRa 868, Web UI, GPS/SOS және Companion функциялары бар сақталған тұрақты Z-Bridge S3 жинағы."
+                                         },
+                         "included":  [
+                                          "ESP-NOW",
+                                          "LoRa 868",
+                                          "Web UI",
+                                          "BLE Companion",
+                                          "TCP Companion",
+                                          "GNSS / SOS"
+                                      ],
+                         "known_issues":  [
+                                              "Saved rollback build from 2026-08-23."
+                                          ],
+                         "ready":  true,
+                         "category":  "espnow",
+                         "flash":  {
+                                       "type":  "esp32",
+                                       "chip":  "esp32s3",
+                                       "baud":  921600,
+                                       "mode":  "dio",
+                                       "frequency":  "80m",
+                                       "size":  "8MB",
+                                       "files":  [
+                                                     {
+                                                         "path":  "firmware/esp32/zbridge-s3-stable-2026-08-23.bin",
+                                                         "offset":  "0x0",
+                                                         "sha256":  "1a04e588615f1061e3e0ef3957acc731eee1d96d5af2d8da331ffc26336970ab"
+                                                     }
+                                                 ]
+                                   }
+                     },
+                     {
+                         "id":  "zbridge-s3-test",
+                         "name":  "Z-Bridge S3 · Test · Sensors/Web",
+                         "version":  "2026-08-27",
+                         "build_date":  "2026-08-27",
+                         "status":  "testing",
+                         "board":  "xiao-esp32s3",
+                         "mcu":  "ESP32-S3",
+                         "radio":  "ESP-NOW + LoRa",
+                         "band":  "2.4 GHz + 868/434 MHz capable",
+                         "file":  "firmware/esp32/zbridge-s3-test-2026-08-27.bin",
+                         "sha256":  "cf733e7f9ff437f811aaffbe1a19012c5d3aeefa8122463bcf2ce4b68929ba39",
+                         "size":  985556,
+                         "description":  {
+                                             "ru":  "Тестовая Z-Bridge S3 с новой Web UI, вкладкой Sensors, ESP-NOW settings, LoRa Scanner и PSRAM-оптимизацией.",
+                                             "en":  "Test Z-Bridge S3 build with new Web UI, Sensors tab, ESP-NOW settings, LoRa Scanner and PSRAM optimization.",
+                                             "kk":  "Жаңа Web UI, Sensors бөлімі, ESP-NOW баптаулары, LoRa Scanner және PSRAM оңтайландыруы бар тесттік Z-Bridge S3."
+                                         },
+                         "included":  [
+                                          "ESP-NOW",
+                                          "LoRa 868/434 support",
+                                          "Sensors Web tab",
+                                          "ESP-NOW channel / PHY settings",
+                                          "LoRa Scanner",
+                                          "BLE Companion",
+                                          "TCP Companion",
+                                          "GNSS",
+                                          "PSRAM Web buffers"
+                                      ],
+                         "known_issues":  [
+                                              "Remote SENSOR CLI from Web is not implemented yet.",
+                                              "BLE scanner/bridge not implemented yet.",
+                                              "Per-SENSOR routing policy not implemented yet."
+                                          ],
+                         "ready":  true,
+                         "category":  "espnow",
+                         "flash":  {
+                                       "type":  "esp32",
+                                       "chip":  "esp32s3",
+                                       "baud":  921600,
+                                       "mode":  "dio",
+                                       "frequency":  "80m",
+                                       "size":  "8MB",
+                                       "files":  [
+                                                     {
+                                                         "path":  "firmware/esp32/zbridge-s3-test-2026-08-27.bin",
+                                                         "offset":  "0x0",
+                                                         "sha256":  "cf733e7f9ff437f811aaffbe1a19012c5d3aeefa8122463bcf2ce4b68929ba39"
                                                      }
                                                  ]
                                    }

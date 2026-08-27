@@ -116,6 +116,17 @@
             <button data-command="sensor status">sensor status</button><button data-command="sensor capabilities">sensor capabilities</button><button data-command="sensor scan">sensor scan</button><button data-command="gps">gps</button><button data-command="gps on">gps on</button><button data-command="gps off">gps off</button><button data-command="get sensor.advert_temp">get sensor.advert_temp</button><button data-command="set sensor.advert_temp on">set sensor.advert_temp on</button><button data-command="set sensor.advert_temp off">set sensor.advert_temp off</button>
           </div>
         </div>
+        <div class="hint-group"><h3>ESP-NOW</h3>
+          <div class="command-chips">
+            <button data-command="get espnow.status">get espnow.status</button>
+            <button data-command="get espnow.channel">get espnow.channel</button>
+            <button data-command="set espnow.channel 1">set espnow.channel 1</button>
+            <button data-command="get espnow.phy">get espnow.phy</button>
+            <button data-command="set espnow.phy bgn">set espnow.phy bgn</button>
+            <button data-command="set espnow.phy lr">set espnow.phy lr</button>
+            <button data-command="get espnow.txpower">get espnow.txpower</button>
+          </div>
+        </div>
         <div class="hint-group"><h3 data-i18n="radioIdentity">Radio & identity</h3>
           <div class="command-chips">
             <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button><button data-command="get advert.interval">get advert.interval</button><button data-command="set advert.interval 60">set advert.interval 60</button><button data-command="clock">clock</button><button data-command="get public.key">get public.key</button><button data-command="dfu">dfu</button>
@@ -132,6 +143,32 @@
       <div class="step"><span>6</span><div><strong data-i18n="testBuildsTitle">Тестовые прошивки</strong><small data-i18n="testBuildsSub">Версии, изменения, известные проблемы и пожелания</small></div></div>
       <div id="test-builds" class="release-grid"><div class="note">Loading manifest…</div></div>
       <div class="wishlist-box"><strong data-i18n="wishlistTitle">Хотелки / Wishlist</strong><span data-i18n="wishlistText">Здесь будем отмечать запросы сообщества, результаты полевых тестов и функции для следующей сборки.</span></div>
+    </section>
+
+    <section class="panel">
+      <div class="step"><span>W</span><div><strong>Wiki / Docs</strong><small>Architecture, ESP-NOW and SENSOR routing</small></div></div>
+      <div class="credits-grid">
+        <article class="credit-card">
+          <h3>Z-Bridge concept</h3>
+          <p>Зачем нужен Z-Bridge, типовые сценарии и почему архитектура построена вокруг Companion, а не Repeater.</p>
+          <div class="credit-links"><a href="docs/zbridge-concept.md" target="_blank">Открыть концепцию</a></div>
+        </article>
+        <article class="credit-card">
+          <h3>ESP-NOW</h3>
+          <p>Локальный быстрый транспорт, BGN/LR, channel и варианты использования ESP32 SENSOR.</p>
+          <div class="credit-links"><a href="docs/espnow.md" target="_blank">ESP-NOW guide</a></div>
+        </article>
+        <article class="credit-card">
+          <h3>SENSOR routing</h3>
+          <p>Local / 434 / 868, фильтрация телеметрии и работа нескольких Z-Bridge.</p>
+          <div class="credit-links"><a href="docs/sensor-routing.md" target="_blank">Routing policy</a></div>
+        </article>
+        <article class="credit-card">
+          <h3>MeshCore Almaty</h3>
+          <p>Живая карта городской MeshCore сети Алматы.</p>
+          <div class="credit-links"><a href="https://meshcoretel.ru/ru/ALA/map" target="_blank" rel="noopener noreferrer">Открыть карту</a></div>
+        </article>
+      </div>
     </section>
 
     <section class="panel community-panel">
