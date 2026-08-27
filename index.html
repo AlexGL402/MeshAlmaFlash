@@ -52,7 +52,12 @@
         <p id="selected-description"></p>
         <div id="selected-meta" class="meta"></div>
       </div>
-      <a id="download" class="primary disabled" aria-disabled="true" data-i18n="comingSoon">Firmware coming soon</a>
+      <div class="selected-actions">
+        <a id="download" class="primary disabled" aria-disabled="true" data-i18n="comingSoon">Firmware coming soon</a>
+        <button id="esp-erase" class="secondary hidden" type="button">Erase ESP32</button>
+        <progress id="flash-progress" class="hidden" max="100" value="0"></progress>
+        <small id="flash-status" aria-live="polite"></small>
+      </div>
     </section>
 
     <section id="diy-section" class="panel diy-panel hidden">

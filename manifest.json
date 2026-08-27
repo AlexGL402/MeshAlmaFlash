@@ -151,7 +151,22 @@
                                               "New test build; hardware validation is still required."
                                           ],
                          "ready":  true,
-                         "category":  "espnow"
+                         "category":  "espnow",
+                         "flash":  {
+                                       "type":  "esp32",
+                                       "chip":  "esp32c3",
+                                       "baud":  921600,
+                                       "mode":  "dio",
+                                       "frequency":  "80m",
+                                       "size":  "4MB",
+                                       "files":  [
+                                                     {
+                                                         "path":  "firmware/esp32/sensor-espnow-c3-v0.1.0-test.bin",
+                                                         "offset":  "0x0",
+                                                         "sha256":  "76a722fda1d4506c1bf4bd2272c64adba10aac8e20bc52a4f6435b7f840cfe76"
+                                                     }
+                                                 ]
+                                   }
                      }
                  ]
 }
