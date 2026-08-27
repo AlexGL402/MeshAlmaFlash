@@ -184,7 +184,10 @@ function showBuild(build,button){
 }
 
 function bytesToHex(bytes){return Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('')}
-async function loadEspTool(){return import('https://unpkg.com/esptool-js@0.6.0/lib/index.js')}
+async function loadEspTool(){
+ try{return await import('https://unpkg.com/esptool-js@0.6.0/bundle.js')}
+ catch(error){throw new Error(`Unable to load ESP32 flasher library: ${error?.message||error}`)}
+}
 async function connectEsp(build){
  if(!('serial' in navigator))throw new Error('Web Serial requires Chrome/Edge over HTTPS.');
  const {ESPLoader,Transport}=await loadEspTool();
