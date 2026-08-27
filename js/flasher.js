@@ -188,6 +188,12 @@ async function loadEspTool(){
  try{return await import('https://unpkg.com/esptool-js@0.6.0/bundle.js')}
  catch(error){throw new Error(`Unable to load ESP32 flasher library: ${error?.message||error}`)}
 }
+function normalizeChipName(value){
+ const compact=String(value||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const families=['esp32c61','esp32c6','esp32c5','esp32c3','esp32s3','esp32s2','esp32h2','esp32p4','esp32'];
+ return families.find(family=>compact.startsWith(family))||compact;
+}
+function matchesExpectedChip(expected,detected){return normalizeChipName(expected)===normalizeChipName(detected)}
 async function connectEsp(build){
  if(!('serial' in navigator))throw new Error('Web Serial requires Chrome/Edge over HTTPS.');
  const {ESPLoader,Transport}=await loadEspTool();
@@ -195,9 +201,7 @@ async function connectEsp(build){
  const transport=new Transport(device,true);
  const loader=new ESPLoader({transport,baudrate:Number(build.flash?.baud||921600),terminal:{clean(){},writeLine(data){flashStatus.textContent=String(data)},write(data){flashStatus.textContent=String(data)}}});
  const detected=await loader.main();
- const expected=String(build.flash?.chip||'').toLowerCase().replace(/[^a-z0-9]/g,'');
- const actual=String(detected||'').toLowerCase().replace(/[^a-z0-9]/g,'');
- if(!expected||actual!==expected){await transport.disconnect();throw new Error(`Chip mismatch: expected ${build.flash?.chip}, detected ${detected||'unknown'}.`)}
+ if(!build.flash?.chip||!matchesExpectedChip(build.flash.chip,detected)){await transport.disconnect();throw new Error(`Chip mismatch: expected ${build.flash?.chip}, detected ${detected||'unknown'}.`)}
  return {loader,transport};
 }
 async function downloadFirmware(path){
