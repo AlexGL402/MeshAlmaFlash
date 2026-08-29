@@ -263,39 +263,41 @@
         },
         {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC · Display · V1.1 Test",
-            "version": "v1.1-test",
+            "name": "Z-Bridge DevKitC ? Display ? V1.2 Test",
+            "version": "v1.2-test",
             "build_date": "2026-08-29",
             "status": "testing",
             "board": "esp32s3-devkitc-n16r8",
             "mcu": "ESP32-S3",
             "radio": "ESP-NOW + LoRa",
             "band": "2.4 GHz + LoRa capable",
-            "file": "firmware/esp32/zbridge-devkitc-display-v1.1-test.bin",
-            "sha256": "ed9c80f62a76869fc45cec9a32b5d5a6ff33c41bf59b4ede3d8146db3bb18a93",
-            "size": 1085044,
+            "file": "firmware/esp32/zbridge-devkitc-display-v1.2-test.bin",
+            "sha256": "06de4d0652a7eb35f31caa034260429962d7c5e6d7cce41ad683ea30de17ba82",
+            "size": 1085172,
             "description": {
-                "ru": "???????? Z-Bridge ??? ESP32-S3 DevKitC N16R8 ? ??????? ST7789 240x240, ?????????, Web UI, BLE ? ESP-NOW. V1.1: ?????????? ??????, refresh 2 ??? ? auto-off 60 ???.",
-                "en": "Test Z-Bridge build for ESP32-S3 DevKitC N16R8 with 240x240 ST7789 color display, encoder, Web UI, BLE and ESP-NOW. V1.1 restores icons, uses a 2-second refresh and 60-second display auto-off.",
+                "ru": "Z-Bridge ??? ESP32-S3 DevKitC N16R8 ? ST7789 240x240 ? ?????????. V1.2: ??????????? ???????? Messages, Radio, Sensors ? Status.",
+                "en": "Z-Bridge for ESP32-S3 DevKitC N16R8 with ST7789 240x240 and encoder. V1.2 adds functional Messages, Radio, Sensors and Status pages.",
                 "kk": "ESP32-S3 DevKitC N16R8 ???? ST7789 240x240 ????? ????????, ????????, Web UI, BLE ???? ESP-NOW ??? ??????? Z-Bridge."
             },
             "included": [
                 "ST7789 240x240 color UI",
-                "HOME and status icons",
                 "Encoder navigation",
+                "Messages page with recent chat",
+                "Radio status / ESP-NOW diagnostics",
+                "SENSOR cache display",
+                "System Status page",
                 "2-second UI refresh",
                 "60-second display auto-off",
                 "ESP-NOW",
                 "Wi-Fi Web UI",
                 "BLE Peripheral + Central",
                 "BLE Remote Radio support",
-                "SENSOR cache/display",
                 "8 MB Octal PSRAM"
             ],
             "known_issues": [
-                "V1.1 hardware test build.",
-                "LoRa radio was not installed during the display/encoder hardware test.",
-                "Backlight is physically connected to 3.3V and cannot yet be switched off by firmware."
+                "V1.2 hardware test build.",
+                "LoRa module was not physically installed during this test.",
+                "Backlight is connected directly to 3.3V and cannot yet be switched off by firmware."
             ],
             "ready": true,
             "category": "espnow",
@@ -308,9 +310,9 @@
                 "size": "16MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-devkitc-display-v1.1-test.bin",
+                        "path": "firmware/esp32/zbridge-devkitc-display-v1.2-test.bin",
                         "offset": "0x0",
-                        "sha256": "ed9c80f62a76869fc45cec9a32b5d5a6ff33c41bf59b4ede3d8146db3bb18a93"
+                        "sha256": "06de4d0652a7eb35f31caa034260429962d7c5e6d7cce41ad683ea30de17ba82"
                     }
                 ]
             }
