@@ -263,7 +263,7 @@
         },
         {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC ? Display ? V1.1 Test",
+            "name": "Z-Bridge DevKitC · Display · V1.1 Test",
             "version": "v1.1-test",
             "build_date": "2026-08-29",
             "status": "testing",
