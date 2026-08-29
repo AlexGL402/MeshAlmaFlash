@@ -263,25 +263,28 @@
         },
         {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC ? V1 Test ? Display",
-            "version": "v1-test",
+            "name": "Z-Bridge DevKitC ? Display ? V1.1 Test",
+            "version": "v1.1-test",
             "build_date": "2026-08-29",
             "status": "testing",
             "board": "esp32s3-devkitc-n16r8",
             "mcu": "ESP32-S3",
             "radio": "ESP-NOW + LoRa",
             "band": "2.4 GHz + LoRa capable",
-            "file": "firmware/esp32/zbridge-devkitc-v1-test.bin",
-            "sha256": "0c578724a7746a7807138d670d57724617c7bb97a75cabbcb46664fffd2d16e5",
-            "size": 1084980,
+            "file": "firmware/esp32/zbridge-devkitc-display-v1.1-test.bin",
+            "sha256": "ed9c80f62a76869fc45cec9a32b5d5a6ff33c41bf59b4ede3d8146db3bb18a93",
+            "size": 1085044,
             "description": {
-                "ru": "???????? Z-Bridge ??? ESP32-S3 DevKitC N16R8 ? ??????? ST7789 240x240, ?????????, Web UI, BLE ? ESP-NOW.",
-                "en": "Test Z-Bridge build for ESP32-S3 DevKitC N16R8 with 240x240 ST7789 color display, encoder, Web UI, BLE and ESP-NOW.",
+                "ru": "???????? Z-Bridge ??? ESP32-S3 DevKitC N16R8 ? ??????? ST7789 240x240, ?????????, Web UI, BLE ? ESP-NOW. V1.1: ?????????? ??????, refresh 2 ??? ? auto-off 60 ???.",
+                "en": "Test Z-Bridge build for ESP32-S3 DevKitC N16R8 with 240x240 ST7789 color display, encoder, Web UI, BLE and ESP-NOW. V1.1 restores icons, uses a 2-second refresh and 60-second display auto-off.",
                 "kk": "ESP32-S3 DevKitC N16R8 ???? ST7789 240x240 ????? ????????, ????????, Web UI, BLE ???? ESP-NOW ??? ??????? Z-Bridge."
             },
             "included": [
                 "ST7789 240x240 color UI",
+                "HOME and status icons",
                 "Encoder navigation",
+                "2-second UI refresh",
+                "60-second display auto-off",
                 "ESP-NOW",
                 "Wi-Fi Web UI",
                 "BLE Peripheral + Central",
@@ -290,10 +293,8 @@
                 "8 MB Octal PSRAM"
             ],
             "known_issues": [
-                "V1 hardware test build.",
-                "LoRa radio was not installed during this display/encoder hardware test.",
-                "Display currently refreshes about once per second.",
-                "Display inactivity timeout is currently about 10 seconds.",
+                "V1.1 hardware test build.",
+                "LoRa radio was not installed during the display/encoder hardware test.",
                 "Backlight is physically connected to 3.3V and cannot yet be switched off by firmware."
             ],
             "ready": true,
@@ -307,9 +308,9 @@
                 "size": "16MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-devkitc-v1-test.bin",
+                        "path": "firmware/esp32/zbridge-devkitc-display-v1.1-test.bin",
                         "offset": "0x0",
-                        "sha256": "0c578724a7746a7807138d670d57724617c7bb97a75cabbcb46664fffd2d16e5"
+                        "sha256": "ed9c80f62a76869fc45cec9a32b5d5a6ff33c41bf59b4ede3d8146db3bb18a93"
                     }
                 ]
             }
