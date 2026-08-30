@@ -321,43 +321,46 @@
         },
         {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 FieldControl V1",
-            "version": "fieldcontrol-v1",
+            "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 Router/CLI V1",
+            "version": "router-cli-v1",
             "build_date": "2026-08-30",
             "status": "testing",
             "board": "esp32s3-devkitc-n16r8",
             "mcu": "ESP32-S3",
-            "radio": "ESP-NOW + BLE Remote",
-            "band": "2.4 GHz + BLE Remote LoRa capable",
-            "file": "firmware/esp32/zbridge-devkitc-fieldcontrol-v1-2026-08-30.bin",
-            "sha256": "9e3f3d17a9fa0cbc1d79bd378c8d386800c568d5480441e680d588491a8c58c0",
-            "size": 1090084,
+            "radio": "ESP-NOW + BLE Remote + LoRa0",
+            "band": "2.4 GHz + LoRa0 868 + BLE Remote LoRa capable",
+            "file": "firmware/esp32/zbridge-devkitc-router-cli-v1-2026-08-30.bin",
+            "sha256": "9e48a28163d7018bcd5b708977c7f79280776a486481dbba4d5ab198a6536f8e",
+            "size": 1094292,
             "description": {
-                "ru": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u0430\u043f\u043f\u0430\u0440\u0430\u0442\u043d\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u0430\u044f \u0441\u0431\u043e\u0440\u043a\u0430 ESP32-S3 DevKitC N16R8 \u0441 ST7789, \u044d\u043d\u043a\u043e\u0434\u0435\u0440\u043e\u043c, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl \u0438 Web UI.",
-                "en": "Current hardware-tested ESP32-S3 DevKitC N16R8 build with ST7789, encoder, ESP-NOW, BLE Companion, one BLE Remote, Unified Router, FieldControl and Web UI.",
-                "kk": "Hardware-tested ESP32-S3 DevKitC N16R8 build: ST7789, encoder, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl and Web UI."
+                "ru": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f hardware-tested \u0441\u0431\u043e\u0440\u043a\u0430 ESP32-S3 DevKitC N16R8 \u0441 ST7789, \u044d\u043d\u043a\u043e\u0434\u0435\u0440\u043e\u043c, ESP-NOW, \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u043c LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR Source \u0438 MCU Temperature.",
+                "en": "Current hardware-tested ESP32-S3 DevKitC N16R8 build with ST7789, encoder, ESP-NOW, physical LoRa0, BLE Companion, one BLE Remote, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR source tracking and MCU temperature.",
+                "kk": "ST7789, encoder, ESP-NOW, physical LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR source tracking \u0436\u04d9\u043d\u0435 MCU temperature \u0431\u0430\u0440 hardware-tested ESP32-S3 DevKitC N16R8 \u0436\u0438\u043d\u0430\u0493\u044b."
             },
             "included": [
                 "ST7789 240x240 color UI",
                 "Encoder navigation",
-                "Messages / Radio / Sensors / Status UI",
-                "Hidden Network service menu",
+                "Messages / Radio / Sensors / Status / Network UI",
                 "ESP-NOW",
+                "Physical LoRa0 SX126x/E22",
+                "LoRa Scanner",
                 "BLE Companion Peripheral",
                 "BLE Remote Central x1",
-                "Unified Router ESP-NOW <-> BLE Remote",
-                "Web Router controls",
-                "FieldControl runtime controls",
-                "BLE ADV runtime control",
-                "Wi-Fi STA runtime OFF/ON",
+                "Unified Router",
+                "FieldControl",
+                "Web UI",
+                "Web CLI Console",
+                "Wi-Fi runtime provisioning CLI",
+                "SENSOR ingress source tracking",
+                "ESP32-S3 MCU temperature",
                 "GPS control/status",
                 "8 MB Octal PSRAM"
             ],
             "known_issues": [
-                "Physical LoRa0 is not enabled in this tested DevKitC display build.",
                 "Wi-Fi AP mode is not implemented yet.",
-                "The fifth Home row is intentionally blank and opens the hidden Network service menu.",
-                "Backlight is connected directly to 3.3V and cannot be switched off by firmware."
+                "BLE Remote shows generic \"BLE Remote\" when its LoRa band metadata is unknown.",
+                "Battery ADC is not implemented yet.",
+                "DevKitC internal RAM headroom is limited (~8.8 KB)."
             ],
             "ready": true,
             "category": "espnow",
@@ -370,9 +373,9 @@
                 "size": "16MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-devkitc-fieldcontrol-v1-2026-08-30.bin",
+                        "path": "firmware/esp32/zbridge-devkitc-router-cli-v1-2026-08-30.bin",
                         "offset": "0x0",
-                        "sha256": "9e3f3d17a9fa0cbc1d79bd378c8d386800c568d5480441e680d588491a8c58c0"
+                        "sha256": "9e48a28163d7018bcd5b708977c7f79280776a486481dbba4d5ab198a6536f8e"
                     }
                 ]
             }
