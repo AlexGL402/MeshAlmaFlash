@@ -263,41 +263,43 @@
         },
         {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC ? Display ? V1.2 Test",
-            "version": "v1.2-test",
-            "build_date": "2026-08-29",
+            "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 FieldControl V1",
+            "version": "fieldcontrol-v1",
+            "build_date": "2026-08-30",
             "status": "testing",
             "board": "esp32s3-devkitc-n16r8",
             "mcu": "ESP32-S3",
-            "radio": "ESP-NOW + LoRa",
-            "band": "2.4 GHz + LoRa capable",
-            "file": "firmware/esp32/zbridge-devkitc-display-v1.2-test.bin",
-            "sha256": "06de4d0652a7eb35f31caa034260429962d7c5e6d7cce41ad683ea30de17ba82",
-            "size": 1085172,
+            "radio": "ESP-NOW + BLE Remote",
+            "band": "2.4 GHz + BLE Remote LoRa capable",
+            "file": "firmware/esp32/zbridge-devkitc-fieldcontrol-v1-2026-08-30.bin",
+            "sha256": "9e3f3d17a9fa0cbc1d79bd378c8d386800c568d5480441e680d588491a8c58c0",
+            "size": 1090084,
             "description": {
-                "ru": "Z-Bridge ??? ESP32-S3 DevKitC N16R8 ? ST7789 240x240 ? ?????????. V1.2: ??????????? ???????? Messages, Radio, Sensors ? Status.",
-                "en": "Z-Bridge for ESP32-S3 DevKitC N16R8 with ST7789 240x240 and encoder. V1.2 adds functional Messages, Radio, Sensors and Status pages.",
-                "kk": "ESP32-S3 DevKitC N16R8 ???? ST7789 240x240 ????? ????????, ????????, Web UI, BLE ???? ESP-NOW ??? ??????? Z-Bridge."
+                "ru": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u0430\u043f\u043f\u0430\u0440\u0430\u0442\u043d\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u0430\u044f \u0441\u0431\u043e\u0440\u043a\u0430 ESP32-S3 DevKitC N16R8 \u0441 ST7789, \u044d\u043d\u043a\u043e\u0434\u0435\u0440\u043e\u043c, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl \u0438 Web UI.",
+                "en": "Current hardware-tested ESP32-S3 DevKitC N16R8 build with ST7789, encoder, ESP-NOW, BLE Companion, one BLE Remote, Unified Router, FieldControl and Web UI.",
+                "kk": "Hardware-tested ESP32-S3 DevKitC N16R8 build: ST7789, encoder, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl and Web UI."
             },
             "included": [
                 "ST7789 240x240 color UI",
                 "Encoder navigation",
-                "Messages page with recent chat",
-                "Radio status / ESP-NOW diagnostics",
-                "SENSOR cache display",
-                "System Status page",
-                "2-second UI refresh",
-                "60-second display auto-off",
+                "Messages / Radio / Sensors / Status UI",
+                "Hidden Network service menu",
                 "ESP-NOW",
-                "Wi-Fi Web UI",
-                "BLE Peripheral + Central",
-                "BLE Remote Radio support",
+                "BLE Companion Peripheral",
+                "BLE Remote Central x1",
+                "Unified Router ESP-NOW <-> BLE Remote",
+                "Web Router controls",
+                "FieldControl runtime controls",
+                "BLE ADV runtime control",
+                "Wi-Fi STA runtime OFF/ON",
+                "GPS control/status",
                 "8 MB Octal PSRAM"
             ],
             "known_issues": [
-                "V1.2 hardware test build.",
-                "LoRa module was not physically installed during this test.",
-                "Backlight is connected directly to 3.3V and cannot yet be switched off by firmware."
+                "Physical LoRa0 is not enabled in this tested DevKitC display build.",
+                "Wi-Fi AP mode is not implemented yet.",
+                "The fifth Home row is intentionally blank and opens the hidden Network service menu.",
+                "Backlight is connected directly to 3.3V and cannot be switched off by firmware."
             ],
             "ready": true,
             "category": "espnow",
@@ -310,9 +312,9 @@
                 "size": "16MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-devkitc-display-v1.2-test.bin",
+                        "path": "firmware/esp32/zbridge-devkitc-fieldcontrol-v1-2026-08-30.bin",
                         "offset": "0x0",
-                        "sha256": "06de4d0652a7eb35f31caa034260429962d7c5e6d7cce41ad683ea30de17ba82"
+                        "sha256": "9e3f3d17a9fa0cbc1d79bd378c8d386800c568d5480441e680d588491a8c58c0"
                     }
                 ]
             }
