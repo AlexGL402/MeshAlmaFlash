@@ -262,6 +262,64 @@
             }
         },
         {
+            "id": "zbridge-s3-zero-4m2r-v1",
+            "name": "Z-Bridge S3 Zero \u00b7 4M2R \u00b7 V1",
+            "version": "zero-4m2r-v1",
+            "build_date": "2026-08-30",
+            "status": "testing",
+            "board": "esp32s3-zero",
+            "mcu": "ESP32-S3",
+            "radio": "ESP-NOW + BLE Remote",
+            "band": "2.4 GHz + BLE Remote LoRa capable",
+            "file": "firmware/esp32/zbridge-s3-zero-4m2r-v1-2026-08-30.bin",
+            "sha256": "fa3d2535b7486f0bbbb127fed1a8564e78d1c6de4ade6c7aebe6dbb4d4b80381",
+            "size": 1090356,
+            "description": {
+                "ru": "\u0410\u043f\u043f\u0430\u0440\u0430\u0442\u043d\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u0430\u044f \u0441\u0431\u043e\u0440\u043a\u0430 Waveshare ESP32-S3-Zero 4 MB Flash / 2 MB PSRAM \u0441 ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console \u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u043e\u0439 GC9A01.",
+                "en": "Hardware-tested Waveshare ESP32-S3-Zero build for 4 MB Flash / 2 MB PSRAM with ESP-NOW, BLE Companion, one BLE Remote, Unified Router, FieldControl, Web UI, Web Console and GC9A01 support.",
+                "kk": "4 MB Flash / 2 MB PSRAM, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console \u0436\u04d9\u043d\u0435 GC9A01 \u049b\u043e\u043b\u0434\u0430\u0443\u044b \u0431\u0430\u0440 hardware-tested Waveshare ESP32-S3-Zero \u0436\u0438\u043d\u0430\u0493\u044b."
+            },
+            "included": [
+                "ESP-NOW",
+                "BLE Companion Peripheral",
+                "BLE Remote Central x1",
+                "Unified Router",
+                "FieldControl",
+                "Web UI",
+                "Web CLI Console",
+                "Wi-Fi runtime provisioning CLI",
+                "SENSOR source tracking",
+                "GC9A01 240x240 support",
+                "Encoder",
+                "GPS",
+                "ESP32-S3 MCU temperature",
+                "2 MB PSRAM"
+            ],
+            "known_issues": [
+                "Physical LoRa is not installed on ESP32-S3 Zero.",
+                "LoRa Scanner is intentionally unavailable/hidden.",
+                "Battery ADC is not implemented yet.",
+                "BLE Remote currently reports BLE Remote when its LoRa band metadata is unknown."
+            ],
+            "ready": true,
+            "category": "espnow",
+            "flash": {
+                "type": "esp32",
+                "chip": "esp32s3",
+                "baud": 921600,
+                "mode": "dio",
+                "frequency": "80m",
+                "size": "4MB",
+                "files": [
+                    {
+                        "path": "firmware/esp32/zbridge-s3-zero-4m2r-v1-2026-08-30.bin",
+                        "offset": "0x0",
+                        "sha256": "fa3d2535b7486f0bbbb127fed1a8564e78d1c6de4ade6c7aebe6dbb4d4b80381"
+                    }
+                ]
+            }
+        },
+        {
             "id": "zbridge-devkitc-v1-test",
             "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 FieldControl V1",
             "version": "fieldcontrol-v1",

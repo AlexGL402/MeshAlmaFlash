@@ -127,6 +127,11 @@
             <button data-command="get espnow.txpower">get espnow.txpower</button>
           </div>
         </div>
+        <div class="hint-group"><h3>Wi-Fi</h3>
+          <div class="command-chips">
+            <button data-command="wifi status">wifi status</button><button data-command="wifi scan">wifi scan</button><button data-command="wifi connect">wifi connect</button><button data-command="wifi disconnect">wifi disconnect</button>
+          </div>
+        </div>
         <div class="hint-group"><h3 data-i18n="radioIdentity">Radio & identity</h3>
           <div class="command-chips">
             <button data-command="get name">get name</button><button data-command="get radio">get radio</button><button data-command="get freq">get freq</button><button data-command="get tx">get tx</button><button data-command="advert">advert</button><button data-command="advert.zerohop">advert.zerohop</button><button data-command="get advert.interval">get advert.interval</button><button data-command="set advert.interval 60">set advert.interval 60</button><button data-command="clock">clock</button><button data-command="get public.key">get public.key</button><button data-command="dfu">dfu</button>
@@ -135,6 +140,23 @@
         <p class="note"><span data-i18n="commandTip">Нажмите команду для немедленной отправки. Команды со значением вводите вручную:</span>
           <code>set freq 434.030</code>, <code>set name Sensor-Test-01</code>, <code>set guest.password test</code>, <code>password admin123</code>.
         </p>
+      </div>
+
+      <div class="wifi-setup">
+        <div class="eyebrow">Wi-Fi Setup</div>
+        <div class="wifi-actions"><button id="wifi-scan" class="secondary button" type="button">Scan Wi-Fi</button></div>
+        <div id="wifi-networks" class="wifi-networks" aria-live="polite"></div>
+        <div class="wifi-fields">
+          <label>SSID<input id="wifi-ssid" maxlength="32" autocomplete="off"></label>
+          <label>Password<input id="wifi-password" type="password" maxlength="64" autocomplete="new-password"></label>
+        </div>
+        <div class="wifi-actions">
+          <button id="wifi-save" class="primary button" type="button">Save &amp; Connect</button>
+          <button id="wifi-status" class="secondary button" type="button">Status</button>
+          <button id="wifi-disconnect" class="secondary button" type="button">Disconnect</button>
+          <button id="wifi-clear" class="secondary button" type="button">Clear Wi-Fi</button>
+        </div>
+        <pre id="wifi-output" class="wifi-output" aria-live="polite">Connect USB Serial to configure Wi-Fi.</pre>
       </div>
     </section>
 
@@ -167,6 +189,11 @@
           <h3>ESP32-S3 Z-Bridge pinout</h3>
           <p>Current tested DevKitC wiring for display, encoder, GPS and LoRa0.</p>
           <div class="credit-links"><a href="docs/zbridge-devkitc-pinout.md" target="_blank">Open pinout</a></div>
+        </article>
+        <article class="credit-card">
+          <h3>ESP32-S3 Zero pinout</h3>
+          <p>Waveshare ESP32-S3-Zero wiring for GC9A01, encoder and GPS.</p>
+          <div class="credit-links"><a href="docs/esp32-s3-zero-pinout.md" target="_blank">Open pinout</a></div>
         </article>
         <article class="credit-card">
           <h3>MeshCore Almaty</h3>

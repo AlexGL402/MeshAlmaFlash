@@ -64,6 +64,7 @@ kk:{
 }};
 
 const boards=[
+ {id:'esp32s3-zero',name:'Waveshare ESP32-S3 Zero',vendor:'Waveshare / MeshAlma',chip:'ESP32-S3',group:['esp32','espnow'],status:'ready',icon:'\ud83c\udf10',desc:{ru:'\u041a\u043e\u043c\u043f\u0430\u043a\u0442\u043d\u044b\u0439 Z-Bridge: ESP-NOW, BLE Companion, BLE Remote, GC9A01, \u044d\u043d\u043a\u043e\u0434\u0435\u0440 \u0438 GPS.',en:'Compact Z-Bridge with ESP-NOW, BLE Companion, BLE Remote, GC9A01, encoder and GPS.',kk:'ESP-NOW, BLE Companion, BLE Remote, GC9A01, encoder \u0436\u04d9\u043d\u0435 GPS \u0431\u0430\u0440 \u044b\u049b\u0448\u0430\u043c Z-Bridge.'}},
  {id:'diy-promicro',name:'DIY · nRF52840 ProMicro',vendor:'DIY',chip:'nrf52840',group:['nrf52840','diy'],status:'ready',icon:'🛠️',desc:{ru:'Наш основной DIY-конструктор: SX1278 или E22/SX126x, дисплей, GPS и датчики.',en:'Our main DIY platform: SX1278 or E22/SX126x, display, GPS and sensors.',kk:'Негізгі DIY платформа: SX1278 немесе E22/SX126x, дисплей, GPS және сенсорлар.'}},
  {id:'esp32s3-devkitc-n16r8',name:'ESP32-S3 DevKitC N16R8',vendor:'MeshAlma',chip:'ESP32-S3',group:['esp32','espnow'],status:'ready',icon:'🖥️',desc:{ru:'Z-Bridge DevKitC с ST7789, энкодером, ESP-NOW, BLE Companion и BLE Remote.',en:'Z-Bridge DevKitC with ST7789, encoder, ESP-NOW, BLE Companion and BLE Remote.',kk:'ST7789, encoder, ESP-NOW, BLE Companion және BLE Remote бар Z-Bridge DevKitC.'}}, {id:'xiao-esp32c3',name:'XIAO ESP32-C3',vendor:'Seeed',chip:'ESP32-C3',group:['esp32','espnow'],status:'ready',icon:'📶',desc:{ru:'Компактный ESP32-C3 SENSOR endpoint для ESP-NOW.',en:'Compact ESP32-C3 SENSOR endpoint for ESP-NOW.',kk:'ESP-NOW үшін ықшам ESP32-C3 SENSOR endpoint.'}},
  {id:'heltec-v3',name:'Heltec LoRa 32 V3',vendor:'Heltec',chip:'esp32-s3',group:['esp32'],status:'planned',icon:'📡',desc:{ru:'ESP32-S3 + SX1262. Поддержка профилей готовится.',en:'ESP32-S3 + SX1262. Firmware profiles are planned.',kk:'ESP32-S3 + SX1262. Firmware профильдері жоспарланған.'}},
@@ -177,6 +178,13 @@ function showBuild(build,button){
  selected.classList.remove('hidden');nameEl.textContent=build.name;descEl.textContent=buildDescription(build);meta.textContent=[build.version,build.status,build.mcu,build.radio,build.band].join(' · ');
  const extension=String(build.file||'').split('?')[0].toLowerCase().match(/\.[^.\/]+$/)?.[0]||'';
  const espFlash=build.flash?.type==='esp32'&&extension==='.bin';
+ const espSteps={
+  ru:['Плата прошита и перезагружена.','Подключитесь через USB Serial.','Откройте Wi-Fi Setup.','Нажмите Scan Wi-Fi.','Выберите сеть.','Введите пароль.','Нажмите Save & Connect.','После получения IP откройте Web UI ноды.'],
+  en:['The board is flashed and restarted.','Connect over USB Serial.','Open Wi-Fi Setup.','Scan for Wi-Fi.','Select a network.','Enter its password.','Select Save & Connect.','After an IP address appears, open the node Web UI.'],
+  kk:['Плата прошивкаланып, қайта іске қосылды.','USB Serial арқылы қосылыңыз.','Wi-Fi Setup бөлімін ашыңыз.','Scan Wi-Fi басыңыз.','Желіні таңдаңыз.','Құпиясөзді енгізіңіз.','Save & Connect басыңыз.','IP алынғаннан кейін node Web UI ашыңыз.']};
+ const nrfSteps=['flash1','flash2','flash3','flash4','flash5'].map(key=>t(key));
+ document.querySelector('#flash-instructions').innerHTML=(espFlash?(espSteps[lang]||espSteps.en):nrfSteps).map(step=>`<li>${escapeHtml(step)}</li>`).join('');
+ document.querySelector('#flash-kind').textContent=espFlash?'ESP32 Web Serial / Wi-Fi setup':'UF2 / browser workflow';
  espErase.classList.toggle('hidden',!espFlash);espErase.textContent=t('eraseEsp32');flashProgress.classList.add('hidden');flashProgress.value=0;flashStatus.textContent='';
  if(build.ready&&espFlash){download.removeAttribute('href');download.removeAttribute('download');download.textContent=t('flashEsp32');download.classList.remove('disabled');download.removeAttribute('aria-disabled')}
  else if(build.ready){download.href=build.file;download.download='';download.textContent=extension==='.uf2'?t('download'):`Download ${extension||'firmware'}`;download.classList.remove('disabled');download.removeAttribute('aria-disabled')}
@@ -253,12 +261,16 @@ const input=document.querySelector('#terminal-input');
 const dfuBtn=document.querySelector('#serial-dfu');
 let port=null,reader=null,writer=null,readLoopActive=false;
 const encoder=new TextEncoder(),decoder=new TextDecoder();
-function appendTerminal(text){terminal.textContent+=text;terminal.scrollTop=terminal.scrollHeight}
+const serialObservers=new Set();
+function appendTerminal(text){terminal.textContent+=text;terminal.scrollTop=terminal.scrollHeight;for(const observer of serialObservers)observer(text)}
 function setState(text,online=false){stateEl.textContent=text;stateEl.classList.toggle('online',online)}
 async function disconnectSerial(){readLoopActive=false;try{if(reader){await reader.cancel();reader.releaseLock()}}catch{}reader=null;try{if(writer){writer.releaseLock()}}catch{}writer=null;try{if(port){await port.close()}}catch{}port=null;connectBtn.textContent=t('connect');setState(t('disconnected'),false)}
 async function readSerial(){if(!port?.readable)return;reader=port.readable.getReader();readLoopActive=true;try{while(readLoopActive){const {value,done}=await reader.read();if(done)break;if(value)appendTerminal(decoder.decode(value,{stream:true}))}}catch(err){appendTerminal(`\n[serial read error] ${err.message}\n`)}finally{try{reader.releaseLock()}catch{}reader=null;if(readLoopActive)await disconnectSerial()}}
 async function connectSerial(){if(!('serial' in navigator)){appendTerminal('\nWeb Serial requires Chrome/Edge over HTTPS.\n');return}if(port){await disconnectSerial();return}try{port=await navigator.serial.requestPort();await port.open({baudRate:115200,dataBits:8,stopBits:1,parity:'none',flowControl:'none'});writer=port.writable.getWriter();connectBtn.textContent='Disconnect';setState('Connected · 115200',true);appendTerminal('\n[connected 115200 8N1]\n');readSerial()}catch(err){appendTerminal(`\n[connect error] ${err.message}\n`);await disconnectSerial()}}
 async function sendCommand(command){const cmd=String(command||'').trim();if(!cmd)return;if(!writer){appendTerminal(`\n> ${cmd}\n[not connected]\n`);return}appendTerminal(`\n> ${cmd}\n`);try{await writer.write(encoder.encode(cmd+'\r\n'))}catch(err){appendTerminal(`[write error] ${err.message}\n`)}}
+async function writePrivateCommand(command,display){if(!writer){appendTerminal(`\n> ${display}\n[not connected]\n`);return false}appendTerminal(`\n> ${display}\n`);try{await writer.write(encoder.encode(command+'\r\n'));return true}catch(err){appendTerminal(`[write error] ${err.message}\n`);return false}}
+function collectSerial(durationMs){return new Promise(resolve=>{let output='';const observer=text=>{output+=text};serialObservers.add(observer);setTimeout(()=>{serialObservers.delete(observer);resolve(output)},durationMs)})}
+async function commandResponse(command,durationMs=900){const pending=collectSerial(durationMs);await sendCommand(command);return pending}
 connectBtn.addEventListener('click', connectSerial);
 clearBtn.addEventListener('click', () => {
   terminal.textContent = '';
@@ -279,6 +291,28 @@ form.addEventListener('submit', async e => {
 document.querySelectorAll('[data-command]').forEach(btn =>
   btn.addEventListener('click', () => sendCommand(btn.dataset.command))
 );
+
+const wifiScanBtn=document.querySelector('#wifi-scan');
+const wifiSsid=document.querySelector('#wifi-ssid');
+const wifiPassword=document.querySelector('#wifi-password');
+const wifiNetworks=document.querySelector('#wifi-networks');
+const wifiOutput=document.querySelector('#wifi-output');
+const cliQuote=value=>'"'+String(value).replace(/\\/g,'\\\\').replace(/"/g,'\\"')+'"';
+function showWifiOutput(text){wifiOutput.textContent=String(text||'No response').trim()}
+function parseWifiNetworks(text){
+ const rows=[];
+ for(const line of String(text).split(/\r?\n/)){const match=line.trim().match(/^(.+?)\s+rssi=(-?\d+)\s+ch=(\d+)\s+(.+)$/);if(match)rows.push({ssid:match[1],rssi:match[2],channel:match[3],security:match[4]})}
+ wifiNetworks.replaceChildren(...rows.map(row=>{const button=document.createElement('button');button.type='button';button.textContent=`${row.ssid} · ${row.rssi} dBm · ch ${row.channel} · ${row.security}`;button.addEventListener('click',()=>{wifiSsid.value=row.ssid;wifiSsid.focus()});return button}));
+ return rows;
+}
+wifiScanBtn.addEventListener('click',async()=>{wifiScanBtn.disabled=true;showWifiOutput('Scanning…');await commandResponse('wifi scan',500);await new Promise(resolve=>setTimeout(resolve,1200));const result=await commandResponse('wifi scan',1200);const rows=parseWifiNetworks(result);showWifiOutput(rows.length?`Found ${rows.length} network(s).`:(result||'No networks found.'));wifiScanBtn.disabled=false});
+document.querySelector('#wifi-status').addEventListener('click',async()=>showWifiOutput(await commandResponse('wifi status',1000)));
+document.querySelector('#wifi-disconnect').addEventListener('click',async()=>showWifiOutput(await commandResponse('wifi disconnect',1000)));
+document.querySelector('#wifi-clear').addEventListener('click',async()=>{if(!confirm('Clear saved Wi-Fi credentials and disconnect?'))return;showWifiOutput(await commandResponse('wifi clear confirm',1200))});
+document.querySelector('#wifi-save').addEventListener('click',async()=>{
+ const ssid=wifiSsid.value.trim(),password=wifiPassword.value;if(!ssid){showWifiOutput('SSID is required.');return}
+ const command=`wifi set ${cliQuote(ssid)} ${cliQuote(password)}`;const display=`wifi set ${cliQuote(ssid)} "<redacted>"`;const pending=collectSerial(1200);const sent=await writePrivateCommand(command,display);wifiPassword.value='';if(!sent){showWifiOutput('Serial port is not connected.');return}const saved=await pending;if(!/\bOK\b/i.test(saved)){showWifiOutput(saved||'Wi-Fi credentials were not accepted.');return}await commandResponse('wifi connect',900);await new Promise(resolve=>setTimeout(resolve,1500));showWifiOutput(await commandResponse('wifi status',1200));
+});
 
 window.addEventListener('beforeunload', () => {
   if (port) disconnectSerial();
