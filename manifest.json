@@ -263,17 +263,17 @@
         },
         {
             "id": "zbridge-s3-zero-4m2r-v1",
-            "name": "Z-Bridge S3 Zero \u00b7 4M2R \u00b7 V1",
-            "version": "zero-4m2r-v1",
-            "build_date": "2026-08-30",
+            "name": "Z-Bridge S3 Zero \u00b7 4M2R \u00b7 V1.1",
+            "version": "zero-4m2r-v1.1",
+            "build_date": "2026-08-31",
             "status": "testing",
             "board": "esp32s3-zero",
             "mcu": "ESP32-S3",
             "radio": "ESP-NOW + BLE Remote",
             "band": "2.4 GHz + BLE Remote LoRa capable",
-            "file": "firmware/esp32/zbridge-s3-zero-4m2r-v1-2026-08-30.bin",
-            "sha256": "fa3d2535b7486f0bbbb127fed1a8564e78d1c6de4ade6c7aebe6dbb4d4b80381",
-            "size": 1090356,
+            "file": "firmware/esp32/zbridge-s3-zero-4m2r-v1.1-2026-08-31.bin",
+            "sha256": "2762acf2a61874f59a3d587cb057488d12ffe4375de6de501487ab651e95e15b",
+            "size": 1090436,
             "description": {
                 "ru": "\u0410\u043f\u043f\u0430\u0440\u0430\u0442\u043d\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u0430\u044f \u0441\u0431\u043e\u0440\u043a\u0430 Waveshare ESP32-S3-Zero 4 MB Flash / 2 MB PSRAM \u0441 ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console \u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u043e\u0439 GC9A01.",
                 "en": "Hardware-tested Waveshare ESP32-S3-Zero build for 4 MB Flash / 2 MB PSRAM with ESP-NOW, BLE Companion, one BLE Remote, Unified Router, FieldControl, Web UI, Web Console and GC9A01 support.",
@@ -293,7 +293,8 @@
                 "Encoder",
                 "GPS",
                 "ESP32-S3 MCU temperature",
-                "2 MB PSRAM"
+                "2 MB PSRAM",
+                "USB Serial CLI"
             ],
             "known_issues": [
                 "Physical LoRa is not installed on ESP32-S3 Zero.",
@@ -312,26 +313,26 @@
                 "size": "4MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-s3-zero-4m2r-v1-2026-08-30.bin",
+                        "path": "firmware/esp32/zbridge-s3-zero-4m2r-v1.1-2026-08-31.bin",
                         "offset": "0x0",
-                        "sha256": "fa3d2535b7486f0bbbb127fed1a8564e78d1c6de4ade6c7aebe6dbb4d4b80381"
+                        "sha256": "2762acf2a61874f59a3d587cb057488d12ffe4375de6de501487ab651e95e15b"
                     }
                 ]
             }
         },
         {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 Router/CLI V1",
-            "version": "router-cli-v1",
-            "build_date": "2026-08-30",
+            "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 Router/CLI V1.1",
+            "version": "router-cli-v1.1",
+            "build_date": "2026-08-31",
             "status": "testing",
             "board": "esp32s3-devkitc-n16r8",
             "mcu": "ESP32-S3",
             "radio": "ESP-NOW + BLE Remote + LoRa0",
             "band": "2.4 GHz + LoRa0 868 + BLE Remote LoRa capable",
-            "file": "firmware/esp32/zbridge-devkitc-router-cli-v1-2026-08-30.bin",
-            "sha256": "9e48a28163d7018bcd5b708977c7f79280776a486481dbba4d5ab198a6536f8e",
-            "size": 1094292,
+            "file": "firmware/esp32/zbridge-devkitc-router-cli-v1.1-2026-08-31.bin",
+            "sha256": "aa6a8d6462782520b179b5f2eac8c662082718c04bef169ffd1868921236e30b",
+            "size": 1094372,
             "description": {
                 "ru": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f hardware-tested \u0441\u0431\u043e\u0440\u043a\u0430 ESP32-S3 DevKitC N16R8 \u0441 ST7789, \u044d\u043d\u043a\u043e\u0434\u0435\u0440\u043e\u043c, ESP-NOW, \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u043c LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR Source \u0438 MCU Temperature.",
                 "en": "Current hardware-tested ESP32-S3 DevKitC N16R8 build with ST7789, encoder, ESP-NOW, physical LoRa0, BLE Companion, one BLE Remote, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR source tracking and MCU temperature.",
@@ -354,7 +355,8 @@
                 "SENSOR ingress source tracking",
                 "ESP32-S3 MCU temperature",
                 "GPS control/status",
-                "8 MB Octal PSRAM"
+                "8 MB Octal PSRAM",
+                "USB Serial CLI"
             ],
             "known_issues": [
                 "Wi-Fi AP mode is not implemented yet.",
@@ -373,9 +375,9 @@
                 "size": "16MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-devkitc-router-cli-v1-2026-08-30.bin",
+                        "path": "firmware/esp32/zbridge-devkitc-router-cli-v1.1-2026-08-31.bin",
                         "offset": "0x0",
-                        "sha256": "9e48a28163d7018bcd5b708977c7f79280776a486481dbba4d5ab198a6536f8e"
+                        "sha256": "aa6a8d6462782520b179b5f2eac8c662082718c04bef169ffd1868921236e30b"
                     }
                 ]
             }
