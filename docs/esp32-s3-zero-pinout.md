@@ -44,6 +44,34 @@ Display configuration:
 | B | GPIO6 |
 | SW | GPIO7 |
 
+## 3-way navigation switch
+
+| Signal | GPIO |
+|---|---|
+| LEFT | GPIO13 |
+| RIGHT | GPIO14 |
+| CENTER | GPIO15 |
+
+Electrical configuration:
+
+- Active-low
+- Internal pull-ups enabled
+- Switch contacts connect GPIO to GND
+
+Navigation behavior:
+
+- LEFT → previous / left
+- RIGHT → next / right
+- CENTER single click → OK / Select / Enter
+- CENTER double click → Back
+
+Timing:
+
+- GPIO debounce: 25 ms
+- Double-click window: 350 ms
+
+The existing rotary encoder remains enabled and works in parallel with the 3-way navigation switch.
+
 ## GPS
 
 | Signal | GPIO |
@@ -54,7 +82,9 @@ Display configuration:
 
 ## Planned battery ADC
 
-GPIO1 is reserved as the planned battery ADC input. Battery ADC support is not implemented yet.
+GPIO1 is reserved as the planned battery ADC input.
+
+Battery ADC support is not implemented yet.
 
 ## Reserved / do not use
 
