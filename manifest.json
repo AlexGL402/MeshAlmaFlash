@@ -320,63 +320,62 @@
                 ]
             }
         },
-        {
-            "id": "zbridge-s3-zero-4m2r-v2",
-            "name": "Z-Bridge S3 Zero · 4M2R · V2",
-            "version": "zero-4m2r-v2",
-            "build_date": "2026-08-31",
-            "status": "testing",
-            "board": "esp32s3-zero",
-            "mcu": "ESP32-S3",
-            "radio": "ESP-NOW + Local LoRa868 + BLE Remote",
-            "band": "2.4 GHz + 868 MHz + BLE Remote",
-            "file": "firmware/esp32/zbridge-s3-zero-4m2r-v2-2026-08-31.bin",
-            "sha256": "",
-            "size": 1099796,
-            "description": {
-                "ru": "Новая тестовая сборка Waveshare ESP32-S3-Zero с круглым GC9A01 UI, энкодером и 3-way навигацией, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router и поддержкой физического Local LoRa868 SX126x/E22.",
-                "en": "New Waveshare ESP32-S3-Zero test build with GC9A01 round UI, encoder and 3-way navigation, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router and physical Local LoRa868 SX126x/E22 support.",
-                "kk": "GC9A01 дөңгелек UI, encoder және 3-way navigation, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router және Local LoRa868 SX126x/E22 қолдауы бар Waveshare ESP32-S3-Zero тесттік жинағы."
-            },
-            "included": [
-                "GC9A01 round UI",
-                "Rotary encoder",
-                "3-way navigation",
-                "Battery ADC GPIO1",
-                "GPS",
-                "ESP-NOW",
-                "Physical Local LoRa868 SX126x/E22",
-                "BLE Companion",
-                "BLE Remote Central x1",
-                "Unified Router",
-                "CrossBandPolicy",
-                "FieldControl",
-                "Web UI",
-                "Web CLI Console"
-            ],
-            "known_issues": [
-                "Local LoRa868 firmware support is implemented; hardware validation on S3 Zero is still pending.",
-                "Internal RAM headroom is limited (~13.4 KB free).",
-                "Firmware SHA-256 must be filled after publishing the V2 binary."
-            ],
-            "ready": false,
-            "category": "espnow",
-            "flash": {
-                "type": "esp32",
-                "chip": "esp32s3",
-                "baud": 921600,
-                "mode": "dio",
-                "frequency": "80m",
-                "size": "4MB",
-                "files": [
-                    {
-                        "path": "firmware/esp32/zbridge-s3-zero-4m2r-v2-2026-08-31.bin",
-                        "offset": "0x0",
-                        "sha256": ""
-                    }
-                ]
-            }
-        },
+{
+  "id": "zbridge-s3-zero-4m2r-v2",
+  "name": "Z-Bridge S3 Zero · 4M2R · V2",
+  "version": "zero-4m2r-v2",
+  "build_date": "2026-08-31",
+  "status": "testing",
+  "board": "esp32s3-zero",
+  "mcu": "ESP32-S3",
+  "radio": "ESP-NOW + Local LoRa868 + BLE Remote",
+  "band": "2.4 GHz + 868 MHz + BLE Remote",
+  "file": "firmware/esp32/zbridge-s3-zero-4m2r-v2-2026-08-31.bin",
+  "sha256": "301f9bf8da702a1da01f30bbb4082b0f59733bf52e27569f90e4693b7d8335f9",
+  "size": 1099796,
+  "description": {
+    "ru": "Новая тестовая сборка Waveshare ESP32-S3-Zero с круглым GC9A01 UI, энкодером и 3-way навигацией, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router и поддержкой физического Local LoRa868 SX126x/E22.",
+    "en": "New Waveshare ESP32-S3-Zero test build with GC9A01 round UI, encoder and 3-way navigation, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router and physical Local LoRa868 SX126x/E22 support.",
+    "kk": "GC9A01 дөңгелек UI, encoder және 3-way navigation, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router және Local LoRa868 SX126x/E22 қолдауы бар Waveshare ESP32-S3-Zero тесттік жинағы."
+  },
+  "included": [
+    "GC9A01 round UI",
+    "Rotary encoder",
+    "3-way navigation",
+    "Battery ADC GPIO1",
+    "GPS",
+    "ESP-NOW",
+    "Physical Local LoRa868 SX126x/E22",
+    "BLE Companion",
+    "BLE Remote Central x1",
+    "Unified Router",
+    "CrossBandPolicy",
+    "FieldControl",
+    "Web UI",
+    "Web CLI Console"
+  ],
+  "known_issues": [
+    "Local LoRa868 firmware support is implemented; hardware validation on S3 Zero is still pending.",
+    "Internal RAM headroom is limited (~13.4 KB free)."
+  ],
+  "ready": true,
+  "category": "espnow",
+  "flash": {
+    "type": "esp32",
+    "chip": "esp32s3",
+    "baud": 921600,
+    "mode": "dio",
+    "frequency": "80m",
+    "size": "4MB",
+    "files": [
+      {
+        "path": "firmware/esp32/zbridge-s3-zero-4m2r-v2-2026-08-31.bin",
+        "offset": "0x0",
+        "sha256": "301f9bf8da702a1da01f30bbb4082b0f59733bf52e27569f90e4693b7d8335f9"
+      }
+    ]
+  }
+},
         {
             "id": "zbridge-devkitc-v1-test",
             "name": "Z-Bridge DevKitC · Display · Router/CLI V1.1",
