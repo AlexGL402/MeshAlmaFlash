@@ -263,7 +263,7 @@
         },
         {
             "id": "zbridge-s3-zero-4m2r-v1",
-            "name": "Z-Bridge S3 Zero \u00b7 4M2R \u00b7 V1.1",
+            "name": "Z-Bridge S3 Zero · 4M2R · V1.1",
             "version": "zero-4m2r-v1.1",
             "build_date": "2026-08-31",
             "status": "testing",
@@ -275,9 +275,9 @@
             "sha256": "2762acf2a61874f59a3d587cb057488d12ffe4375de6de501487ab651e95e15b",
             "size": 1090436,
             "description": {
-                "ru": "\u0410\u043f\u043f\u0430\u0440\u0430\u0442\u043d\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u0430\u044f \u0441\u0431\u043e\u0440\u043a\u0430 Waveshare ESP32-S3-Zero 4 MB Flash / 2 MB PSRAM \u0441 ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console \u0438 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u043e\u0439 GC9A01.",
+                "ru": "Аппаратно проверенная сборка Waveshare ESP32-S3-Zero 4 MB Flash / 2 MB PSRAM с ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console и поддержкой GC9A01.",
                 "en": "Hardware-tested Waveshare ESP32-S3-Zero build for 4 MB Flash / 2 MB PSRAM with ESP-NOW, BLE Companion, one BLE Remote, Unified Router, FieldControl, Web UI, Web Console and GC9A01 support.",
-                "kk": "4 MB Flash / 2 MB PSRAM, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console \u0436\u04d9\u043d\u0435 GC9A01 \u049b\u043e\u043b\u0434\u0430\u0443\u044b \u0431\u0430\u0440 hardware-tested Waveshare ESP32-S3-Zero \u0436\u0438\u043d\u0430\u0493\u044b."
+                "kk": "4 MB Flash / 2 MB PSRAM, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console және GC9A01 қолдауы бар hardware-tested Waveshare ESP32-S3-Zero жинағы."
             },
             "included": [
                 "ESP-NOW",
@@ -321,8 +321,65 @@
             }
         },
         {
+            "id": "zbridge-s3-zero-4m2r-v2",
+            "name": "Z-Bridge S3 Zero · 4M2R · V2",
+            "version": "zero-4m2r-v2",
+            "build_date": "2026-08-31",
+            "status": "testing",
+            "board": "esp32s3-zero",
+            "mcu": "ESP32-S3",
+            "radio": "ESP-NOW + Local LoRa868 + BLE Remote",
+            "band": "2.4 GHz + 868 MHz + BLE Remote",
+            "file": "firmware/esp32/zbridge-s3-zero-4m2r-v2-2026-08-31.bin",
+            "sha256": "",
+            "size": 1099796,
+            "description": {
+                "ru": "Новая тестовая сборка Waveshare ESP32-S3-Zero с круглым GC9A01 UI, энкодером и 3-way навигацией, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router и поддержкой физического Local LoRa868 SX126x/E22.",
+                "en": "New Waveshare ESP32-S3-Zero test build with GC9A01 round UI, encoder and 3-way navigation, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router and physical Local LoRa868 SX126x/E22 support.",
+                "kk": "GC9A01 дөңгелек UI, encoder және 3-way navigation, Battery ADC, GPS, ESP-NOW, BLE Companion, BLE Remote, Unified Router және Local LoRa868 SX126x/E22 қолдауы бар Waveshare ESP32-S3-Zero тесттік жинағы."
+            },
+            "included": [
+                "GC9A01 round UI",
+                "Rotary encoder",
+                "3-way navigation",
+                "Battery ADC GPIO1",
+                "GPS",
+                "ESP-NOW",
+                "Physical Local LoRa868 SX126x/E22",
+                "BLE Companion",
+                "BLE Remote Central x1",
+                "Unified Router",
+                "CrossBandPolicy",
+                "FieldControl",
+                "Web UI",
+                "Web CLI Console"
+            ],
+            "known_issues": [
+                "Local LoRa868 firmware support is implemented; hardware validation on S3 Zero is still pending.",
+                "Internal RAM headroom is limited (~13.4 KB free).",
+                "Firmware SHA-256 must be filled after publishing the V2 binary."
+            ],
+            "ready": false,
+            "category": "espnow",
+            "flash": {
+                "type": "esp32",
+                "chip": "esp32s3",
+                "baud": 921600,
+                "mode": "dio",
+                "frequency": "80m",
+                "size": "4MB",
+                "files": [
+                    {
+                        "path": "firmware/esp32/zbridge-s3-zero-4m2r-v2-2026-08-31.bin",
+                        "offset": "0x0",
+                        "sha256": ""
+                    }
+                ]
+            }
+        },
+        {
             "id": "zbridge-devkitc-v1-test",
-            "name": "Z-Bridge DevKitC \u00b7 Display \u00b7 Router/CLI V1.1",
+            "name": "Z-Bridge DevKitC · Display · Router/CLI V1.1",
             "version": "router-cli-v1.1",
             "build_date": "2026-08-31",
             "status": "testing",
@@ -334,9 +391,9 @@
             "sha256": "aa6a8d6462782520b179b5f2eac8c662082718c04bef169ffd1868921236e30b",
             "size": 1094372,
             "description": {
-                "ru": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f hardware-tested \u0441\u0431\u043e\u0440\u043a\u0430 ESP32-S3 DevKitC N16R8 \u0441 ST7789, \u044d\u043d\u043a\u043e\u0434\u0435\u0440\u043e\u043c, ESP-NOW, \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u043c LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR Source \u0438 MCU Temperature.",
+                "ru": "Текущая hardware-tested сборка ESP32-S3 DevKitC N16R8 с ST7789, энкодером, ESP-NOW, физическим LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR Source и MCU Temperature.",
                 "en": "Current hardware-tested ESP32-S3 DevKitC N16R8 build with ST7789, encoder, ESP-NOW, physical LoRa0, BLE Companion, one BLE Remote, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR source tracking and MCU temperature.",
-                "kk": "ST7789, encoder, ESP-NOW, physical LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR source tracking \u0436\u04d9\u043d\u0435 MCU temperature \u0431\u0430\u0440 hardware-tested ESP32-S3 DevKitC N16R8 \u0436\u0438\u043d\u0430\u0493\u044b."
+                "kk": "ST7789, encoder, ESP-NOW, physical LoRa0, BLE Companion, BLE Remote x1, Unified Router, FieldControl, Web UI, Web Console, Wi-Fi CLI, SENSOR source tracking және MCU temperature бар hardware-tested ESP32-S3 DevKitC N16R8 жинағы."
             },
             "included": [
                 "ST7789 240x240 color UI",
