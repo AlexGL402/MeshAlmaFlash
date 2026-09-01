@@ -377,6 +377,60 @@
   }
 },
         {
+            "id": "zbridge-s3-zero-ra01sh-sx1262",
+            "name": "Z-Bridge S3 Zero \u00b7 RA-01SH / SX1262 \u00b7 868",
+            "version": "ra01sh-sx1262-868-test",
+            "build_date": "2026-09-01",
+            "status": "testing",
+            "board": "esp32s3-zero",
+            "mcu": "ESP32-S3",
+            "radio": "ESP-NOW + Local LoRa868 (RA-01SH / SX1262) + BLE Remote",
+            "band": "2.4 GHz + 868 MHz + BLE Remote LoRa capable",
+            "file": "firmware/esp32/zbridge-s3-zero-ra01sh-sx1262-868-2026-09-01.bin",
+            "sha256": "4ab119f5771c877b2679d4a0e3f5b6e8bb4af62b73333fba59d3084a578e39dc",
+            "size": 1112516,
+            "description": {
+                "ru": "Тестовая сборка Waveshare ESP32-S3-Zero с локальным LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, GC9A01, энкодером, GPS и Battery ADC. Физическая доступность RA-01SH и runtime sleep проверены на железе.",
+                "en": "Test Waveshare ESP32-S3-Zero build with local LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, one BLE Remote, Unified Router, GC9A01, encoder, GPS and Battery ADC. RA-01SH physical availability and runtime sleep are hardware-tested.",
+                "kk": "Жергілікті LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, GC9A01, энкодер, GPS және Battery ADC бар Waveshare ESP32-S3-Zero тест жинағы. RA-01SH физикалық қолжетімділігі мен runtime sleep жабдықта тексерілді."
+            },
+            "included": [
+                "Local LoRa868 RA-01SH / SX1262",
+                "RA-01SH XTAL mode (no DIO3 TCXO control)",
+                "DIO2 RF-switch control",
+                "No RXEN/TXEN GPIO",
+                "ESP-NOW",
+                "BLE Companion Peripheral",
+                "BLE Remote Central x1",
+                "Unified Router",
+                "GC9A01 240x240 color UI",
+                "Encoder and 3-way navigation",
+                "GPS",
+                "Battery ADC",
+                "2 MB PSRAM"
+            ],
+            "known_issues": [
+                "Full over-air LoRa TX confirmation is still pending independent validation."
+            ],
+            "ready": false,
+            "category": "espnow",
+            "flash": {
+                "type": "esp32",
+                "chip": "esp32s3",
+                "baud": 921600,
+                "mode": "dio",
+                "frequency": "80m",
+                "size": "4MB",
+                "files": [
+                    {
+                        "path": "firmware/esp32/zbridge-s3-zero-ra01sh-sx1262-868-2026-09-01.bin",
+                        "offset": "0x0",
+                        "sha256": "4ab119f5771c877b2679d4a0e3f5b6e8bb4af62b73333fba59d3084a578e39dc"
+                    }
+                ]
+            }
+        },
+        {
             "id": "zbridge-devkitc-v1-test",
             "name": "Z-Bridge DevKitC · Display · Router/CLI V1.1",
             "version": "router-cli-v1.1",
