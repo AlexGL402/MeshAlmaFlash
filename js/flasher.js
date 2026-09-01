@@ -406,47 +406,55 @@ async function flashCustomFirmware() {
     customStatus.textContent =
       `Подключение к ${expectedChip.toUpperCase()}…`;
 
-    const build = {
-      mcu: 'ESP32-S3',
-      flash: {
-        type: 'esp32',
-        chip: expectedChip,
-        baud: 921600,
-        mode: 'dio',
-        frequency: '80m',
-        size: '16MB'
-      }
-    };
+const build = {
+  mcu: 'ESP32-S3',
+  flash: {
+    type: 'esp32',
+    chip: expectedChip,
+    baud: 921600,
+    mode: 'dio',
+    frequency: '80m',
+    size: '16MB'
+  }
+};
 
-    session = await connectEsp(build);
+session = await connectEsp(build);
 
-    if (customErase.checked) {
-      customStatus.textContent = 'Стирание flash…';
-      await session.loader.eraseFlash();
-    }
+if (customErase.checked) {
+  customStatus.textContent = 'Стирание flash…';
+  await session.loader.eraseFlash();
+}
 
-    customStatus.textContent =
-      `Прошивка ${file.name} @ 0x${offset.toString(16)}…`;
+customStatus.textContent =
+  `Прошивка ${file.name} @ 0x${offset.toString(16)}…`;
 
-    const files = [
-      {
-        data,
-        address: offset
-      }
-    ];
+const files = [{
+  data: data,
+  address: Number(offset)
+}];
 
-    await session.loader.writeFlash({
-      fileArray: files,
-      flashMode: build.flash.mode,
-      flashFreq: build.flash.frequency,
-      flashSize: build.flash.size,
-      eraseAll: false,
-      compress: true,
-      reportProgress(_index, written, total) {
-        customProgress.value =
-          total ? Math.round((written * 100) / total) : 0;
-      }
-    });
+console.log('[CUSTOM-FLASH]', {
+  chip: build.flash.chip,
+  mode: build.flash.mode,
+  frequency: build.flash.frequency,
+  size: build.flash.size,
+  address: files[0].address,
+  dataLength: files[0].data.length
+});
+
+await session.loader.writeFlash({
+  fileArray: files,
+  flashMode: build.flash.mode,
+  flashFreq: build.flash.frequency,
+  flashSize: build.flash.size,
+  eraseAll: false,
+  compress: true,
+  reportProgress(_index, written, total) {
+    customProgress.value = total
+      ? Math.round(written * 100 / total)
+      : 0;
+  }
+});
 
     await session.loader.after('hard_reset');
 
