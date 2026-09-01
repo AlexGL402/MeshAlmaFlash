@@ -73,7 +73,70 @@
       <div id="diy-content" class="diy-content"></div>
       <p class="note warning" data-i18n="diyWarning">Перед пайкой сверяйте выбранный профиль прошивки и ревизию платы. Разные модули LoRa могут иметь несовместимый pinout.</p>
     </section>
+<section class="panel custom-firmware-panel">
+  <div class="step">
+    <span>C</span>
+    <div>
+      <strong>Своя прошивка</strong>
+      <small>Прошить локальный .bin через Chrome / Edge</small>
+    </div>
+  </div>
 
+  <div class="wifi-fields">
+    <label>
+      Chip
+      <select id="custom-chip">
+        <option value="esp32s3">ESP32-S3</option>
+        <option value="esp32c3">ESP32-C3</option>
+        <option value="esp32">ESP32</option>
+        <option value="esp32s2">ESP32-S2</option>
+        <option value="esp32c6">ESP32-C6</option>
+      </select>
+    </label>
+
+    <label>
+      Offset
+      <input id="custom-offset" value="0x0" spellcheck="false">
+    </label>
+  </div>
+
+  <div class="wifi-fields">
+    <label>
+      Firmware .bin
+      <input id="custom-firmware-file"
+             type="file"
+             accept=".bin,application/octet-stream">
+    </label>
+  </div>
+
+  <label style="display:flex;gap:.6rem;align-items:center;margin:1rem 0">
+    <input id="custom-erase" type="checkbox">
+    Стереть flash перед прошивкой
+  </label>
+
+  <div class="selected-actions">
+    <button id="custom-flash" class="primary button" type="button">
+      Прошить свой BIN
+    </button>
+
+    <progress id="custom-flash-progress"
+              class="hidden"
+              max="100"
+              value="0"></progress>
+
+    <small id="custom-flash-status" aria-live="polite"></small>
+  </div>
+
+  <p class="note warning">
+    Проверяйте модель ESP32 и offset. Неверная прошивка или адрес могут
+    сделать устройство временно незагружаемым.
+  </p>
+
+  <p class="note">
+    Выбранный файл обрабатывается локально в браузере и не загружается
+    на сервер MeshAlma.
+  </p>
+</section>
     <section class="panel instructions">
       <div class="step"><span>4</span><div><strong data-i18n="flashTitle">Прошивка</strong><small id="flash-kind">UF2 / browser workflow</small></div></div>
       <ol id="flash-instructions">
