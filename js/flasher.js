@@ -230,7 +230,7 @@ async function flashSelectedEsp(){
   for(const file of build.flash.files||[]){const data=await downloadFirmware(file.path);if(file.sha256){const digest=bytesToHex(new Uint8Array(await crypto.subtle.digest('SHA-256',data)));if(digest!==String(file.sha256).toLowerCase())throw new Error('Firmware SHA-256 mismatch.')}files.push({data,address:Number(file.offset)});}
   if(!files.length)throw new Error('No ESP32 flash files in manifest.');
   session=await connectEsp(build);flashStatus.textContent=t('espFlashing');
-  await session.loader.writeFlash({fileArray:files,flashMode:build.flash.mode,flashFreq:build.flash.frequency,flashSize:build.flash.size,eraseAll:false,compress:true,reportProgress(_index,written,total){flashProgress.value=total?Math.round(written*100/total):0}});
+  await session.loader.writeFlash({fileArray:files,flashMode:build.flash.mode,flashFreq:build.flash.frequency,flashSize:'16MB',eraseAll:false,compress:true,reportProgress(_index,written,total){flashProgress.value=total?Math.round(written*100/total):0}});
   await session.loader.after('hard_reset');flashProgress.value=100;flashStatus.textContent=t('espComplete');
  }catch(error){flashStatus.textContent=`Error: ${error?.message||error}`}
  finally{if(session?.transport)try{await session.transport.disconnect()}catch{}download.classList.remove('disabled');espErase.disabled=false}
