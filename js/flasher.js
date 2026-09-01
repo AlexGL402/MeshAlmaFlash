@@ -406,15 +406,15 @@ async function flashCustomFirmware() {
     customStatus.textContent =
       `Подключение к ${expectedChip.toUpperCase()}…`;
 
-    // Reuse the existing ESP flashing implementation.
     const build = {
-      mcu: expectedChip,
+      mcu: 'ESP32-S3',
       flash: {
         type: 'esp32',
         chip: expectedChip,
         baud: 921600,
         mode: 'dio',
-        frequency: '80m'
+        frequency: '80m',
+        size: '16MB'
       }
     };
 
@@ -428,20 +428,20 @@ async function flashCustomFirmware() {
     customStatus.textContent =
       `Прошивка ${file.name} @ 0x${offset.toString(16)}…`;
 
+    const files = [
+      {
+        data,
+        address: offset
+      }
+    ];
+
     await session.loader.writeFlash({
-      fileArray: [
-        {
-          data,
-          address: offset
-        }
-      ],
-
-      flashMode: 'dio',
-      flashFreq: '80m',
-
+      fileArray: files,
+      flashMode: build.flash.mode,
+      flashFreq: build.flash.frequency,
+      flashSize: build.flash.size,
       eraseAll: false,
       compress: true,
-
       reportProgress(_index, written, total) {
         customProgress.value =
           total ? Math.round((written * 100) / total) : 0;
@@ -455,8 +455,10 @@ async function flashCustomFirmware() {
       `Готово: ${file.name} прошит и плата перезагружена.`;
 
   } catch (error) {
+    console.error(error);
+
     customStatus.textContent =
-      `Error: ${error?.message || error}`;
+      `Error: ${error?.stack || error?.message || error}`;
 
   } finally {
     if (session?.transport) {
@@ -474,4 +476,5 @@ async function flashCustomFirmware() {
 }
 
 customFlashBtn.addEventListener('click', flashCustomFirmware);
+
 loadManifest();
