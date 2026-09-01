@@ -333,5 +333,145 @@ async function loadManifest(){
  }catch(error){manifestError=String(error?.message||error)}
  applyI18n();selectBoard('diy-promicro');
 }
+// ============================================================
+// Custom local ESP32 firmware flasher
+// ============================================================
 
+const customChip = document.querySelector('#custom-chip');
+const customOffset = document.querySelector('#custom-offset');
+const customFile = document.querySelector('#custom-firmware-file');
+const customErase = document.querySelector('#custom-erase');
+const customFlashBtn = document.querySelector('#custom-flash');
+const customProgress = document.querySelector('#custom-flash-progress');
+const customStatus = document.querySelector('#custom-flash-status');
+
+function parseFlashOffset(value) {
+  const text = String(value || '').trim();
+
+  if (!/^0x[0-9a-f]+$/i.test(text) && !/^\d+$/.test(text)) {
+    throw new Error('Invalid flash offset.');
+  }
+
+  const offset = Number(text);
+
+  if (!Number.isSafeInteger(offset) || offset < 0) {
+    throw new Error('Invalid flash offset.');
+  }
+
+  return offset;
+}
+
+async function flashCustomFirmware() {
+  const file = customFile.files?.[0];
+
+  if (!file) {
+    customStatus.textContent = 'Выберите .bin файл.';
+    return;
+  }
+
+  if (!file.name.toLowerCase().endsWith('.bin')) {
+    customStatus.textContent = 'Нужен файл .bin.';
+    return;
+  }
+
+  let offset;
+
+  try {
+    offset = parseFlashOffset(customOffset.value);
+  } catch (error) {
+    customStatus.textContent = `Error: ${error.message}`;
+    return;
+  }
+
+  const expectedChip = customChip.value;
+
+  customFlashBtn.disabled = true;
+  customFile.disabled = true;
+  customChip.disabled = true;
+  customOffset.disabled = true;
+  customErase.disabled = true;
+
+  customProgress.classList.remove('hidden');
+  customProgress.value = 0;
+
+  let session;
+
+  try {
+    const data = new Uint8Array(await file.arrayBuffer());
+
+    if (!data.length) {
+      throw new Error('Firmware file is empty.');
+    }
+
+    customStatus.textContent =
+      `Подключение к ${expectedChip.toUpperCase()}…`;
+
+    // Reuse the existing ESP flashing implementation.
+    const build = {
+      mcu: expectedChip,
+      flash: {
+        type: 'esp32',
+        chip: expectedChip,
+        baud: 921600,
+        mode: 'dio',
+        frequency: '80m'
+      }
+    };
+
+    session = await connectEsp(build);
+
+    if (customErase.checked) {
+      customStatus.textContent = 'Стирание flash…';
+      await session.loader.eraseFlash();
+    }
+
+    customStatus.textContent =
+      `Прошивка ${file.name} @ 0x${offset.toString(16)}…`;
+
+    await session.loader.writeFlash({
+      fileArray: [
+        {
+          data,
+          address: offset
+        }
+      ],
+
+      flashMode: 'dio',
+      flashFreq: '80m',
+
+      eraseAll: false,
+      compress: true,
+
+      reportProgress(_index, written, total) {
+        customProgress.value =
+          total ? Math.round((written * 100) / total) : 0;
+      }
+    });
+
+    await session.loader.after('hard_reset');
+
+    customProgress.value = 100;
+    customStatus.textContent =
+      `Готово: ${file.name} прошит и плата перезагружена.`;
+
+  } catch (error) {
+    customStatus.textContent =
+      `Error: ${error?.message || error}`;
+
+  } finally {
+    if (session?.transport) {
+      try {
+        await session.transport.disconnect();
+      } catch {}
+    }
+
+    customFlashBtn.disabled = false;
+    customFile.disabled = false;
+    customChip.disabled = false;
+    customOffset.disabled = false;
+    customErase.disabled = false;
+  }
+}
+
+customFlashBtn.addEventListener('click', flashCustomFirmware);
 loadManifest();
