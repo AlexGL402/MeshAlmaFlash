@@ -230,16 +230,15 @@ async function flashSelectedEsp(){
   for(const file of build.flash.files||[]){const data=await downloadFirmware(file.path);if(file.sha256){const digest=bytesToHex(new Uint8Array(await crypto.subtle.digest('SHA-256',data)));if(digest!==String(file.sha256).toLowerCase())throw new Error('Firmware SHA-256 mismatch.')}files.push({data,address:Number(file.offset)});}
   if(!files.length)throw new Error('No ESP32 flash files in manifest.');
   session=await connectEsp(build);flashStatus.textContent=t('espFlashing');
-  console.log('[CUSTOM-FLASH] flashSize=16MB');
   await session.loader.writeFlash({
   fileArray: files,
-  flashMode: 'dio',
-  flashFreq: '80m',
-  flashSize: '16MB',
+  flashMode: build.flash.mode,
+  flashFreq: build.flash.frequency,
+  flashSize: build.flash.size,
   eraseAll: false,
   compress: true,
   reportProgress(_index, written, total) {
-    customProgress.value = total
+    flashProgress.value = total
       ? Math.round(written * 100 / total)
       : 0;
   }
