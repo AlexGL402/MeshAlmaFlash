@@ -379,20 +379,20 @@
         {
             "id": "zbridge-s3-zero-ra01sh-sx1262",
             "name": "Z-Bridge S3 Zero \u00b7 RA-01SH / SX1262 \u00b7 868",
-            "version": "ra01sh-sx1262-868-test",
-            "build_date": "2026-09-01",
+            "version": "ra01sh-sx1262-868-autopower-test",
+            "build_date": "2026-09-02",
             "status": "testing",
             "board": "esp32s3-zero",
             "mcu": "ESP32-S3",
             "radio": "ESP-NOW + Local LoRa868 (RA-01SH / SX1262) + BLE Remote",
             "band": "2.4 GHz + 868 MHz + BLE Remote LoRa capable",
-            "file": "firmware/esp32/zbridge-s3-zero-ra01sh-sx1262-868-2026-09-01.bin",
-            "sha256": "4ab119f5771c877b2679d4a0e3f5b6e8bb4af62b73333fba59d3084a578e39dc",
-            "size": 1112516,
+            "file": "firmware/esp32/zbridge-s3-zero-ra01sh-sx1262-868-autopower-2026-09-02.bin",
+            "sha256": "777e1678601137157f24f073c0a1e9cb33396af2c9b218a84eab25500e09b10f",
+            "size": 1113732,
             "description": {
-                "ru": "Тестовая сборка Waveshare ESP32-S3-Zero с локальным LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, GC9A01, энкодером, GPS и Battery ADC. Физическая доступность RA-01SH и runtime sleep проверены на железе.",
-                "en": "Test Waveshare ESP32-S3-Zero build with local LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, one BLE Remote, Unified Router, GC9A01, encoder, GPS and Battery ADC. RA-01SH physical availability and runtime sleep are hardware-tested.",
-                "kk": "Жергілікті LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, GC9A01, энкодер, GPS және Battery ADC бар Waveshare ESP32-S3-Zero тест жинағы. RA-01SH физикалық қолжетімділігі мен runtime sleep жабдықта тексерілді."
+                "ru": "Тестовая сборка Waveshare ESP32-S3-Zero с локальным LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, GC9A01, энкодером, GPS и Battery ADC. Аппаратное отключение питания GC9A01, автоматический сон через 60 секунд, пробуждение с повторной инициализацией и полная перерисовка UI проверены на железе.",
+                "en": "Test Waveshare ESP32-S3-Zero build with local LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, one BLE Remote, Unified Router, GC9A01, encoder, GPS and Battery ADC. GC9A01 hardware power-off, automatic sleep after 60 seconds, wake/re-initialization and full UI redraw are hardware-tested.",
+                "kk": "Жергілікті LoRa868 RA-01SH / SX1262, ESP-NOW, BLE Companion, BLE Remote x1, Unified Router, GC9A01, энкодер, GPS және Battery ADC бар Waveshare ESP32-S3-Zero тест жинағы. GC9A01 аппараттық қуатын өшіру, 60 секундтан кейін автоматты ұйқы, қайта инициализациялау арқылы ояту және UI толық қайта сызу жабдықта тексерілді."
             },
             "included": [
                 "Local LoRa868 RA-01SH / SX1262",
@@ -407,7 +407,11 @@
                 "Encoder and 3-way navigation",
                 "GPS",
                 "Battery ADC",
-                "2 MB PSRAM"
+                "2 MB PSRAM",
+                "Hardware display power control via GPIO41 + Si2301BDS",
+                "GC9A01 hardware autosleep after 60 seconds",
+                "Runtime GC9A01 power-on re-init",
+                "UI full redraw after wake"
             ],
             "known_issues": [
                 "Full over-air LoRa TX confirmation is still pending independent validation."
@@ -423,9 +427,9 @@
                 "size": "4MB",
                 "files": [
                     {
-                        "path": "firmware/esp32/zbridge-s3-zero-ra01sh-sx1262-868-2026-09-01.bin",
+                        "path": "firmware/esp32/zbridge-s3-zero-ra01sh-sx1262-868-autopower-2026-09-02.bin",
                         "offset": "0x0",
-                        "sha256": "4ab119f5771c877b2679d4a0e3f5b6e8bb4af62b73333fba59d3084a578e39dc"
+                        "sha256": "777e1678601137157f24f073c0a1e9cb33396af2c9b218a84eab25500e09b10f"
                     }
                 ]
             }
