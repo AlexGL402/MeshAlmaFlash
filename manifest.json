@@ -495,6 +495,61 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "wadamesh-fnk0104b-espnow",
+            "name": "WadaMesh · FNK0104B · ESP-NOW",
+            "version": "v2026.09.08",
+            "build_date": "2026-09-08",
+            "status": "testing",
+            "board": "fnk0104b",
+            "mcu": "ESP32-S3",
+            "radio": "ESP-NOW",
+            "band": "2.4 GHz",
+            "file": "firmware/esp32/wadamesh-fnk0104b-espnow-v2026.09.08.bin",
+            "sha256": "6f86ddd25f7a52e9f7a61f3a198a9aaf99597049f37cf7cfd27def44086002b4",
+            "size": 3086816,
+            "description": {
+                "ru": "WadaMesh для Freenove FNK0104B 2.8″: полноценный touchscreen-интерфейс MeshCore с ESP-NOW, BLE, Wi-Fi/Web, картами, приложениями и внутренним хранилищем.",
+                "en": "WadaMesh for Freenove FNK0104B 2.8″: full touchscreen MeshCore interface with ESP-NOW, BLE, Wi-Fi/Web, maps, apps and internal storage.",
+                "kk": "Freenove FNK0104B 2.8″ үшін WadaMesh: ESP-NOW, BLE, Wi-Fi/Web, карталар, қолданбалар және ішкі сақтау жүйесі бар толық touchscreen MeshCore интерфейсі."
+            },
+            "included": [
+                "WadaMesh touchscreen UI",
+                "MeshCore over ESP-NOW",
+                "ILI9341 240x320 display",
+                "FT6336U capacitive touch",
+                "BLE Companion",
+                "Wi-Fi / Web / Remote",
+                "Maps with internal LittleFS tile cache",
+                "Message history",
+                "Apps / Lua application storage",
+                "Internal SPIFFS storage",
+                "8 MB PSRAM support"
+            ],
+            "known_issues": [
+                "Full flash erase recommended before first install/old FNK upgrade.",
+                "Portrait touch validated; landscape experimental.",
+                "ESP-NOW follows active ESP32 Wi-Fi channel.",
+                "Wi-Fi scan/OFF-ON/AP reconnect ESP-NOW lifecycle needs extended testing."
+            ],
+            "ready": true,
+            "category": "espnow",
+            "flash": {
+                "type": "esp32",
+                "chip": "esp32s3",
+                "baud": 921600,
+                "mode": "qio",
+                "frequency": "80m",
+                "size": "16MB",
+                "files": [
+                    {
+                        "path": "firmware/esp32/wadamesh-fnk0104b-espnow-v2026.09.08.bin",
+                        "offset": "0x0",
+                        "sha256": "6f86ddd25f7a52e9f7a61f3a198a9aaf99597049f37cf7cfd27def44086002b4"
+                    }
+                ]
+            }
         }
     ]
 }
