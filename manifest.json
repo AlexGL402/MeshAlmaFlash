@@ -615,6 +615,52 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "repeater-espnow-c6",
+            "name": "Repeater \u00b7 ESP32-C6 \u00b7 ESP-NOW",
+            "version": "v0.1.0-test",
+            "build_date": "2026-09-17",
+            "status": "testing",
+            "board": "xiao-esp32c6",
+            "mcu": "ESP32-C6",
+            "radio": "ESP-NOW",
+            "band": "2.4 GHz",
+            "file": "firmware/esp32c6/repeater-espnow-c6.bin",
+            "sha256": "0f86b989f339069aee50e0e7b7e99f7e1fb68073b832cdd51e75265b197d43f6",
+            "size": 795904,
+            "description": {
+                "ru": "ESP-NOW-only repeater для ESP32-C6 с каналом 1 по умолчанию. Тестовая сборка, аппаратная проверка ещё не выполнена.",
+                "en": "ESP-NOW-only repeater for ESP32-C6 with default channel 1. Testing build; not hardware-validated yet.",
+                "kk": "ESP32-C6 үшін әдепкі 1-арнасы бар ESP-NOW-only repeater. Сынақ жинағы; аппараттық тексеру әлі орындалмаған."
+            },
+            "included": [
+                "Mesh repeater",
+                "ESP-NOW BGN",
+                "Persistent ESP-NOW settings",
+                "USB Serial diagnostics"
+            ],
+            "known_issues": [
+                "Not hardware-validated yet",
+                "ESP-NOW range/performance depends on antenna, channel and local 2.4 GHz interference"
+            ],
+            "ready": true,
+            "category": "diy",
+            "flash": {
+                "type": "esp32",
+                "chip": "esp32c6",
+                "baud": 921600,
+                "mode": "dio",
+                "frequency": "80m",
+                "size": "4MB",
+                "files": [
+                    {
+                        "path": "firmware/esp32c6/repeater-espnow-c6.bin",
+                        "offset": "0x0",
+                        "sha256": "0f86b989f339069aee50e0e7b7e99f7e1fb68073b832cdd51e75265b197d43f6"
+                    }
+                ]
+            }
         }
     ]
 }
