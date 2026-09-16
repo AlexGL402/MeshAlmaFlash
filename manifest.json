@@ -150,6 +150,40 @@
             "category": "diy"
         },
         {
+            "id": "companion-sx1262-sh1106-869",
+            "name": "Companion · E22-900 / SX1262 · SH1106",
+            "version": "v0.1.0-test",
+            "build_date": "2026-09-16",
+            "status": "testing",
+            "board": "diy-promicro",
+            "mcu": "nRF52840",
+            "radio": "E22-900M30S / SX1262",
+            "band": "868/869 MHz",
+            "file": "firmware/nrf52840/companion-sx1262-sh1106-869.uf2",
+            "sha256": "5eb57c04aec893fde1ded4dded79918723e7d5558ade8d0efc92b4a19724d211",
+            "size": 750080,
+            "description": {
+                "ru": "Тестовая сборка Companion для nRF52840 с E22-900M30S/SX1262 и SH1106, частота по умолчанию 869.618 МГц; аппаратная проверка ещё не выполнена.",
+                "en": "Testing Companion build for nRF52840 with E22-900M30S/SX1262 and SH1106, defaulting to 869.618 MHz; not hardware-validated yet.",
+                "kk": "nRF52840, E22-900M30S/SX1262 және SH1106 үшін сынақ Companion жинағы, әдепкі жиілік 869.618 МГц; аппараттық тексеру әлі орындалмады."
+            },
+            "included": [
+                "BLE Companion",
+                "SH1106 display",
+                "SX1262 native radio",
+                "E22-900M30S support",
+                "Message history",
+                "RSSI/SNR",
+                "USB Serial CLI"
+            ],
+            "known_issues": [
+                "Not hardware-validated yet",
+                "Verify antenna and regional frequency rules before TX"
+            ],
+            "ready": true,
+            "category": "diy"
+        },
+        {
             "id": "sensor-espnow-c3",
             "name": "SENSOR · ESP32-C3 · ESP-NOW",
             "version": "v0.1.0-test",
