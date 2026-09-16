@@ -119,6 +119,37 @@
             "category": "diy"
         },
         {
+            "id": "repeater-sx1278-433",
+            "name": "Repeater · RA-02 / SX1278 433",
+            "version": "v0.1.0-test",
+            "build_date": "2026-09-16",
+            "status": "testing",
+            "board": "diy-promicro",
+            "mcu": "nRF52840",
+            "radio": "SX1278 / RA-02",
+            "band": "433/434 MHz",
+            "file": "firmware/nrf52840/repeater-sx1278-433.uf2",
+            "sha256": "da654d54fc8167ef69bbcbd170713eec3f298f2938f7d8dfe5f7687eb284d607",
+            "size": 570880,
+            "description": {
+                "ru": "Тестовая сборка Mesh repeater для nRF52840 с RA-02/SX1278 433/434 МГц; аппаратная проверка ещё не выполнена.",
+                "en": "Testing Mesh repeater build for nRF52840 with RA-02/SX1278 at 433/434 MHz; not hardware-validated yet.",
+                "kk": "nRF52840 және RA-02/SX1278 433/434 МГц үшін сынақ Mesh repeater жинағы; аппараттық тексеру әлі орындалмады."
+            },
+            "included": [
+                "Mesh repeater",
+                "USB Serial CLI",
+                "Persistent settings",
+                "SX1278 / RA-02 433 MHz"
+            ],
+            "known_issues": [
+                "Not hardware-validated yet",
+                "Verify radio wiring, antenna, frequency and power before TX"
+            ],
+            "ready": true,
+            "category": "diy"
+        },
+        {
             "id": "sensor-espnow-c3",
             "name": "SENSOR · ESP32-C3 · ESP-NOW",
             "version": "v0.1.0-test",
